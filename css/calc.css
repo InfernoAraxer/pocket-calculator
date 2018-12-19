@@ -1,0 +1,61 @@
+.number0, .number1, .number2, .number3, .number4, .number5, .number6, .number7, .number8, .number9 {
+  background-color: #gray;
+  border: 2px solid black;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 3px 0px;
+}
+
+.number0 {
+  padding: 15px 58px;
+  margin: 3px 0px;
+  border: 2px solid black;
+}
+
+.number0:hover {
+  background-color: #969696;
+}
+.number1:hover {
+  background-color: #969696;
+}
+.number2:hover {
+  background-color: #969696;
+}
+.number3:hover {
+  background-color: #969696;
+}
+.number4:hover {
+  background-color: #969696;
+}
+.number5:hover {
+  background-color: #969696;
+}
+.number6:hover {
+  background-color: #969696;
+}
+.number7:hover {
+  background-color: #969696;
+}
+.number8:hover {
+  background-color: #969696;
+}
+.number9:hover {
+  background-color: #969696;
+}
+
+.font {
+  font-family: 'Inconsolata', monospace;
+}
+body {
+  background-color: gray;
+}
+
+#display {
+  font-size: 30px;
+  text-align: left;
+  border: 5px solid black;
+  padding: 50px -30px;
+}
