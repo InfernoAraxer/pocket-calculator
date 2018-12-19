@@ -27,7 +27,7 @@ function button3() {
 function button4() {
   let p = document.getElementById("display");
   str += "4";
-  p.innerHTML = str;
+  p.innerHTML = str; 
 }
 
 function button5() {
