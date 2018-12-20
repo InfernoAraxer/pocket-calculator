@@ -1,4 +1,4 @@
-.number0, .number1, .number2, .number3, .number4, .number5, .number6, .number7, .number8, .number9 {
+.number0, .number1, .number2, .number3, .number4, .number5, .number6, .number7, .number8, .number9, .add, .subtract, .multiply, .equal, .allClear, .divide, .positiveAndNegative, .percent, .decimal {
   background-color: #gray;
   border: 2px solid black;
   color: white;
@@ -10,7 +10,7 @@
 }
 
 .number0 {
-  padding: 15px 58px;
+  padding: 15px 58.5px;
   margin: 3px 0px;
   border: 2px solid black;
 }
@@ -45,17 +45,47 @@
 .number9:hover {
   background-color: #969696;
 }
+.multiply:hover {
+  background-color: #969696;
+}
+.add:hover {
+  background-color: #969696;
+}
+.allClear:hover {
+  background-color: #969696;
+}
+.percent:hover {
+  background-color: #969696;
+}
+.subtract:hover {
+  background-color: #969696;
+}
+.positiveAndNegative:hover {
+  background-color: #969696;
+}
+.divide:hover {
+  background-color: #969696;
+}
+.decimal:hover {
+  background-color: #969696;
+}
+.equal:hover {
+  background-color: #969696;
+}
+
 
 .font {
   font-family: 'Inconsolata', monospace;
 }
+
 body {
   background-color: gray;
 }
 
 #display {
-  font-size: 30px; 
+  font-size: 50px;
   text-align: left;
   border: 5px solid black;
-  padding: 50px -30px;
+  margin: 0px;
+  margin-bottom: 20px;
 }
