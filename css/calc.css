@@ -1,91 +1,66 @@
-.number0, .number1, .number2, .number3, .number4, .number5, .number6, .number7, .number8, .number9, .add, .subtract, .multiply, .equal, .allClear, .divide, .positiveAndNegative, .percent, .decimal {
-  background-color: #gray;
+button {
+  background-color: orange;
   border: 2px solid black;
   color: white;
-  padding: 15px 25px;
+  padding: 30px 50px;
   text-align: center;
-  font-size: 16px;
+  font-size: 28px;
   cursor: pointer;
-  margin: 3px 0px;
+  margin: 5px 0px;
+  border-radius: 50px;
+  box-shadow: 0 9px #999;
 }
 
 .number0 {
-  padding: 15px 58.5px;
-  margin: 3px 0px;
-  border: 2px solid black;
+  padding: 30px 112px;
+}
+.allClear {
+  padding: 30px 38.5px;
+}
+.positiveAndNegative {
+  padding: 30px 41px;
+}
+.decimal {
+  padding: 30px 54px;
+}
+.percent {
+  padding: 30px 45.5px;
 }
 
-.number0:hover {
-  background-color: #969696;
-}
-.number1:hover {
-  background-color: #969696;
-}
-.number2:hover {
-  background-color: #969696;
-}
-.number3:hover {
-  background-color: #969696;
-}
-.number4:hover {
-  background-color: #969696;
-}
-.number5:hover {
-  background-color: #969696;
-}
-.number6:hover {
-  background-color: #969696;
-}
-.number7:hover {
-  background-color: #969696;
-}
-.number8:hover {
-  background-color: #969696;
-}
-.number9:hover {
-  background-color: #969696;
-}
-.multiply:hover {
-  background-color: #969696;
-}
-.add:hover {
-  background-color: #969696;
-}
-.allClear:hover {
-  background-color: #969696;
-}
-.percent:hover {
-  background-color: #969696;
-}
-.subtract:hover {
-  background-color: #969696;
-}
-.positiveAndNegative:hover {
-  background-color: #969696;
-}
-.divide:hover {
-  background-color: #969696;
-}
-.decimal:hover {
-  background-color: #969696;
-}
-.equal:hover {
-  background-color: #969696;
+button:hover {
+  background-color: #ffb732;
 }
 
+
+button:active {
+    background-color: #e59400;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
 
 .font {
   font-family: 'Inconsolata', monospace;
 }
 
 body {
-  background-color: gray;
+  background-color: lightgray;
 }
 
 #display {
-  font-size: 50px;
-  text-align: left;
+  font-size: 100px;
+  text-align: right;
   border: 5px solid black;
-  margin: 0px;
-  margin-bottom: 20px;
+  border-radius: 10px;
+  margin: 10px;
+  max-width: 500px;
+  overflow: hidden;
+  background-color: white;
+}
+
+table {
+  border-radius: 20px;
+  border: 10px solid black;
+  padding-bottom: 15px;
+  background-color: #404040;
+  box-shadow: 10px 10px 5px grey;
 }
