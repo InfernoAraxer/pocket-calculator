@@ -5,6 +5,9 @@ let product = 0;
 let factor1 = 1;
 let factor2 = 0;
 let counter = 1;
+let x = 1;
+let y = 0;
+let z = 1;
 
 function convert() {
   if (product > 1) {
@@ -99,74 +102,171 @@ function button9() {
 }
 
 function add() {
-  let p = document.getElementById("display");
-  factor1 = Number(str);
-  p.innerHTML = str;
-  str = "";
+  if (z < 2) {
+    let p = document.getElementById("display");
+    factor1 = Number(str);
+    p.innerHTML = str;
+    str = "";
+    z++;
+    x = 1;
+  } else {
+    let p = document.getElementById("display");
+    if (x < 2) equal();
+    p.innerHTML = product;
+    str = "";
+    x = 1;
+  }
   i = 1;
 }
 
 function subtract() {
-  let p = document.getElementById("display");
-  factor1 = Number(str);
-  p.innerHTML = str;
-  str = "";
+  if (z < 2) {
+    let p = document.getElementById("display");
+    factor1 = Number(str);
+    p.innerHTML = str;
+    str = "";
+    z++;
+    x = 1;
+  } else {
+    let p = document.getElementById("display");
+    if (x < 2) equal();
+    p.innerHTML = product;
+    str = "";
+    x = 1;
+  }
   i = 2;
 }
 
 function multiply() {
-  let p = document.getElementById("display");
-  factor1 = Number(str);
-  p.innerHTML = str;
-  str = "";
+
+  if (z < 2) {
+    let p = document.getElementById("display");
+    factor1 = Number(str);
+    p.innerHTML = str;
+    str = "";
+    z++;
+    x = 1;
+  } else {
+    let p = document.getElementById("display");
+    if (x < 2) equal();
+    p.innerHTML = product;
+    str = "";
+    x = 1;
+  }
   i = 3;
 }
 
-function decimal() {
-  let p = document.getElementById("display");
-  str += ".";
-  p.innerHTML = str;
-}
-
 function divide() {
-  let p = document.getElementById("display");
-  factor1 = Number(str);
-  p.innerHTML = str;
-  str = "";
+
+  if (z < 2) {
+    let p = document.getElementById("display");
+    factor1 = Number(str);
+    p.innerHTML = str;
+    str = "";
+    z++;
+    x = 1;
+  } else {
+    let p = document.getElementById("display");
+    if (x < 2) equal();
+    p.innerHTML = product;
+    str = "";
+    x = 1;
+  }
   i = 4;
 }
+
+function decimal() {
+  if (y < 1 && str % 1 == 0 && str.length < 10) {
+    y++
+    let p = document.getElementById("display");
+    str += ".";
+    p.innerHTML = str;
+  }
+}
+
 // fix
 function equal() {
   let p = document.getElementById("display");
   switch (i) {
     case 1:
-      factor2 = Number(str);
-      product = (factor1 + factor2);
-      product = product.toString();
-      p.innerHTML = product;
-      factor1 = product;
-      str = "";
+      if (x < 2) {
+        factor2 = Number(str);
+        product = (factor1 + factor2);
+        product = product.toString();
+        p.innerHTML = product;
+        product = Number(product);
+        factor1 = product;
+        str = "";
+        x++;
+      } else {
+        product = (factor1 + factor2);
+        product = product.toString();
+        p.innerHTML = product;
+        product = Number(product);
+        factor1 = product;
+        str = "";
+        x++;
+      }
       break;
     case 2:
-      factor2 = Number(str);
-      product = (factor1 - factor2);
-      product = product.toString();
-      p.innerHTML = product;
-      str = "";
+      if (x < 2) {
+        factor2 = Number(str);
+        product = (factor1 - factor2);
+        product = product.toString();
+        p.innerHTML = product;
+        product = Number(product);
+        factor1 = product;
+        str = "";
+        x++;
+      } else {
+        product = (factor1 - factor2);
+        product = product.toString();
+        p.innerHTML = product;
+        product = Number(product);
+        factor1 = product;
+        str = "";
+        x++;
+      }
       break;
     case 3:
+    if (x < 2) {
       factor2 = Number(str);
       product = (factor1 * factor2);
       product = product.toString();
       p.innerHTML = product;
+      product = Number(product);
+      factor1 = product;
       str = "";
+      x++;
+    } else {
+      product = (factor1 * factor2);
+      product = product.toString();
+      p.innerHTML = product;
+      product = Number(product);
+      factor1 = product;
+      str = "";
+      x++;
+    }
       break;
     case 4:
+    if (x < 2) {
       factor2 = Number(str);
       product = (factor1 / factor2);
       product = product.toString();
       p.innerHTML = product;
+      product = Number(product);
+      factor1 = product;
       str = "";
+      x++;
+    } else {
+      product = (factor1 / factor2);
+      product = product.toString();
+      p.innerHTML = product;
+      product = Number(product);
+      factor1 = product;
+      str = "";
+      x++;
+    }
       break;
     default:
       p.innerHTML = str;
@@ -237,10 +337,11 @@ function percent() {
 
 //Need to Have or fix
 //Commas
-//exponential or scientific notation
-//Error when clicking one of the operations first
-//chained operations
-//maybe positive and Negative
+//Exponential or scientific notation
+//Error when clicking one of the operations first and in general
+//Fix 0 spam
+//Chained operations - Test it more later
+//Maybe positive and Negative
 //All Clear
 /*
 Powers x2, x3, and xy)
