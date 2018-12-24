@@ -283,12 +283,15 @@ function button9() {
     p.innerHTML = str;
     w++;
     v++;
+    console.log(product);// What is WRONG WITH THIS?
   } else {
+    console.log(product);//RRANDOM STUFF OUT OF NOWHERE
     let p = document.getElementById("display");
     str += "9";
     if(str.length > 10) str = str.substring(0,10);
     p.innerHTML = str;
     w++;
+    console.log(product);
   }
 }
 
@@ -351,7 +354,9 @@ function multiply() {
   } else {
     console.log(x, r, product, str);
     let p = document.getElementById("display");
+    console.log(product);
     if (x < 2) equal();
+    console.log(product);
     p.innerHTML = product;
     str = "";
     x = 1;
