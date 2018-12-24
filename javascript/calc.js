@@ -1,15 +1,13 @@
 let str = "";
-let i = 0;
-let j = 1;
 let product = "";
 let factor1 = "";
 let factor2 = "";
-let v = 0;
+let i;
+let v ;
 let x = 1;
 let y = 0;
 let r = 1;
 let w = 0;
-
 
 function convert() {
   if (product > 1) {
@@ -34,9 +32,9 @@ function convert() {
 }
 
 function button0() {
+  console.log(w);
   if (v == 0) {
     let i = 0;
-    let j = 1;
     let product = 0;
     let factor1 = 1;
     let factor2 = 0;
@@ -48,7 +46,8 @@ function button0() {
     str += 0;
     if(str.length > 10) str = str.substring(0,10);
     p.innerHTML = str;
-    v++;
+    w++;
+    str = "";
   } else if (w > 0) {
     let p = document.getElementById("display");
     str += "0";
@@ -61,7 +60,6 @@ function button0() {
 function button1() {
   if (v == 0) {
     let i = 0;
-    let j = 1;
     let product = 0;
     let factor1 = 1;
     let factor2 = 0;
@@ -87,7 +85,6 @@ function button1() {
 function button2() {
   if (v == 0) {
     let i = 0;
-    let j = 1;
     let product = 0;
     let factor1 = 1;
     let factor2 = 0;
@@ -113,7 +110,6 @@ function button2() {
 function button3() {
   if (v == 0) {
     let i = 0;
-    let j = 1;
     let product = 0;
     let factor1 = 1;
     let factor2 = 0;
@@ -139,7 +135,6 @@ function button3() {
 function button4() {
   if (v == 0) {
     let i = 0;
-    let j = 1;
     let product = 0;
     let factor1 = 1;
     let factor2 = 0;
@@ -165,7 +160,6 @@ function button4() {
 function button5() {
   if (v == 0) {
     let i = 0;
-    let j = 1;
     let product = 0;
     let factor1 = 1;
     let factor2 = 0;
@@ -191,7 +185,6 @@ function button5() {
 function button6() {
   if (v == 0) {
     let i = 0;
-    let j = 1;
     let product = 0;
     let factor1 = 1;
     let factor2 = 0;
@@ -217,7 +210,6 @@ function button6() {
 function button7() {
   if (v == 0) {
     let i = 0;
-    let j = 1;
     let product = 0;
     let factor1 = 1;
     let factor2 = 0;
@@ -243,7 +235,6 @@ function button7() {
 function button8() {
   if (v == 0) {
     let i = 0;
-    let j = 1;
     let product = 0;
     let factor1 = 1;
     let factor2 = 0;
@@ -256,6 +247,7 @@ function button8() {
     if(str.length > 10) str = str.substring(0,10);
     p.innerHTML = str;
     w++;
+    console.log(w);
     v++;
   } else {
     let p = document.getElementById("display");
@@ -269,7 +261,6 @@ function button8() {
 function button9() {
   if (v == 0) {
     let i = 0;
-    let j = 1;
     let product = "";
     let factor1 = "";
     let factor2 = "";
@@ -344,15 +335,14 @@ function multiply() {
   if (r < 2) {
     let p = document.getElementById("display");
     factor1 = Number(str);
-    console.log(str);
     p.innerHTML = str;
     str = "";
     x = 1;
     v = 1;
     r++;
-    console.log(x , r);
+    console.log(x , r, 2);
   } else {
-    console.log(x, r, product, str);
+    console.log(x, r, product, str, 1);
     let p = document.getElementById("display");
     console.log(product);
     if (x < 2) equal();
@@ -392,6 +382,7 @@ function decimal() {
     let p = document.getElementById("display");
     str += ".";
     p.innerHTML = str;
+    w++;
   }
 }
 
@@ -506,8 +497,12 @@ function allClear() {
 //fix
 function positiveAndNegative() {
   let p = document.getElementById("display");
+  str = Number(factor1);
   str = (str*(-1));
   p.innerHTML = str;
+  str = toString(str);
+  r = 1;
+  v = 0;
 }
 //fix
 function percent() {
@@ -518,8 +513,13 @@ function percent() {
     str = "";
   } else {
     percent = (Number(str)/100); //.3
-    str = (factor1 * percent) //30
-    equal();
+    console.log(percent);
+    product = (factor1 * percent);//30
+    p.innerHTML = product;
+    factor1 = Number(product);
+    str = "";
+    x++;
+    v = 0;
   }
 }
 
@@ -530,6 +530,8 @@ function percent() {
 //Error when clicking one of the operations first and in general
 //Chained operations - Test it more later
 //Maybe positive and Negative with product
+//Percantage + Negation Chain
+//All Clear
 /*
 Powers x2, x3, and xy)
 Roots (√x, 3√x, and y√x)
