@@ -10,29 +10,33 @@ let w = 0;
 let i = 0;
 let h = 0;
 
-let num = "0.0000004";
-let number = ".0000004";
-console.log(num.length, number.length);
+let num = "040000.0000000";
+num = Number(num);
+num = num.toString();
+console.log(num);
+console.log(num.length);
+let number = ".000004";
+number = Number(number);
+number = number.toString();
+console.log(number);
+console.log(number.length);
 
 function convert() {
   if (product > 1) {
-    product = product/(10 ** (product.length - 1));
+    let length = product.length - 1;
+    product = product/(10 ** length);
+    product = product.toFixed(2);
+    product = product*(10 ** length);
     product = product.toString();
-    let parts = product.split(".");
-    console.log(parts[1], parts[0]);
-    parts[1] = parts[1]/(10 ** (parts[1].length));
-    let x = Number(parts[1]);
-    parts[1] = x.toFixed(5);
-    console.log(parts[1]);
-    product = parts[0] + parts[1] + "e+" + (product.length - 1);
+    product = Number(product);
+    product = product.toExponential();
+  } else if (product < 1) {
+    product = Number(product);
+    console.log(product);
+    product = product.toFixed(10);
     console.log(product);
     product = Number(product);
-  } else {
-    product = product*(10 ** (product.length + 1));
-    let parts = []
-    parts = product.slice(".");
-    parts[1] = parts[1].toFixed(5);
-    product = parts[0] + "." + parts[2] + "e-" + (product.length + 1);
+    product = product.toExponential();
   }
 }
 
@@ -53,7 +57,7 @@ function button0() {
     p.innerHTML = str;
     w++;
     str = "";
-  } else if (w > 0) {
+  } else if (v > 0) {
     let p = document.getElementById("display");
     str += "0";
     if(str.length > 10) str = str.substring(0,10);
@@ -365,6 +369,7 @@ function multiply() {
         x = 1;
         v = 1;
         r++;
+        if (product.length > 10) convert();
       } else {
         let p = document.getElementById("display");
         if (x < 2) equal();
@@ -372,6 +377,7 @@ function multiply() {
         str = "";
         x = 1;
         v = 1;
+        if (product.length > 10) convert();
       }
       i = 3;
   }
@@ -392,6 +398,7 @@ function divide() {
         v = 1;
         r++;
         console.log(r);
+        if (product.length > 10) convert();
       } else {
         let p = document.getElementById("display");
         if (x < 2) equal();
@@ -399,6 +406,7 @@ function divide() {
         str = "";
         x = 1;
         v = 1;
+        if (product.length > 10) convert();
       }
       i = 4;
   }
@@ -426,8 +434,8 @@ function equal() {
           if (x < 2) {
             factor2 = Number(str);
             product = (factor1 + factor2);
-            if(product.length > 10) product = product.toExponential();
             product = product.toString();
+            if (product.length > 10) convert();
             p.innerHTML = product;
             product = Number(product);
             factor1 = product;
@@ -436,8 +444,8 @@ function equal() {
             v = 0;
           } else {
             product = (factor1 + factor2);
-            if(product.length > 10) product = product.toExponential();
             product = product.toString();
+            if (product.length > 10) convert();
             p.innerHTML = product;
             product = Number(product);
             factor1 = product;
@@ -450,8 +458,8 @@ function equal() {
           if (x < 2) {
             factor2 = Number(str);
             product = (factor1 - factor2);
-            if(product.length > 10) product = product.toExponential();
             product = product.toString();
+            if (product.length > 10) convert();
             p.innerHTML = product;
             product = Number(product);
             factor1 = product;
@@ -460,8 +468,9 @@ function equal() {
             x++;
           } else {
             product = (factor1 - factor2);
-            if(product.length > 10) product = product.toExponential();
             product = product.toString();
+            if (product.length > 10) convert();
+            if (product.length > 10) convert();
             p.innerHTML = product;
             product = Number(product);
             factor1 = product;
@@ -475,16 +484,8 @@ function equal() {
             factor2 = Number(str);
             product = (factor1 * factor2);
             product = product.toString();
-            if (product.length > 10) {
-               product = Number(product);
-               product = product.toExponential();
-               //console.log(typeof(product));
-               product = Number(product);
-               console.log(product);
-               product = product.toFixed(5);
-               console.log(product);
-               product = product.substring(0,10);
-            }
+            if (product.length > 10) convert();
+            console.log(product);
             p.innerHTML = product;
             product = Number(product);
             factor1 = product;
@@ -494,7 +495,8 @@ function equal() {
           } else {
             product = (factor1 * factor2);
             product = product.toString();
-            if(product.length > 10) product = product.toExponential();
+            if (product.length > 10) convert();
+            console.log(product);
             p.innerHTML = product;
             product = Number(product);
             factor1 = product;
@@ -505,10 +507,13 @@ function equal() {
           break;
         case 4:
           if (x < 2) {
+            console.log(factor1);
             factor2 = Number(str);
+            console.log(factor2);
             product = (factor1 / factor2);
-            if(product.length > 10) product = product.toExponential();
             product = product.toString();
+            if (product.length > 10) convert();
+            console.log(product);
             p.innerHTML = product;
             product = Number(product);
             factor1 = product;
@@ -517,8 +522,9 @@ function equal() {
             x++;
           } else {
             product = (factor1 / factor2);
-            if(product.length > 10) product = product.toExponential();
             product = product.toString();
+            if (product.length > 10) convert();
+            console.log(product);
             p.innerHTML = product;
             product = Number(product);
             factor1 = product;
@@ -553,12 +559,9 @@ function allClear() {
 //fix
 function positiveAndNegative() {
   let p = document.getElementById("display");
-  str = Number(factor1);
   str = (str*(-1));
   p.innerHTML = str;
-  str = toString(str);
-  r = 1;
-  v = 0;
+  str = str.toString();
 }
 //fix
 function percent() {
@@ -582,7 +585,7 @@ function percent() {
 //Need to Have or fix
 
 //Commas
-//Exponential or scientific notation 2 decimal places
+//Scientific notation for decimals and negative numbers
 //Error when clicking one of the operations first and in general
 //Chained operations - Test it more later
 //Percantage + Negation Chain
