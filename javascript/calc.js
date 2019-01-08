@@ -10,7 +10,7 @@ let w = 0;
 let i = 0;
 let h = 0;
 
-let num = "040000.0000000";
+/* let num = "040000.0000000";
 num = Number(num);
 num = num.toString();
 console.log(num);
@@ -20,8 +20,11 @@ number = Number(number);
 number = number.toString();
 console.log(number);
 console.log(number.length);
+*/
 
 function convert() {
+
+  /*
   if (product > 1) {
     let length = product.length - 1;
     product = product/(10 ** length);
@@ -38,7 +41,18 @@ function convert() {
     product = Number(product);
     product = product.toExponential();
   }
+*/
 }
+
+//toPrecision(<number of decimals for exponential>)
+
+function commas(input) {
+  let a = input.split(".");
+  console.log(a);
+}
+let b = "11114.555"
+commas(b);
+
 
 function button0() {
   console.log(w);
@@ -585,9 +599,8 @@ function percent() {
 //Need to Have or fix
 
 //Commas
-//Scientific notation for decimals and negative numbers
+//Scientific notation in general
 //Error when clicking one of the operations first and in general
-//Chained operations - Test it more later
 //Percantage + Negation Chain
 //Fix 0
 //Clicking 0 or a number after clicking equals on a string
