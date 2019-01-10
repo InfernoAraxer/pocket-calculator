@@ -9,6 +9,7 @@ let r = 1;
 let w = 0;
 let i = 0;
 let h = 0;
+let q = 0;
 
 /* let num = "040000.0000000";
 num = Number(num);
@@ -44,13 +45,58 @@ function convert() {
 */
 }
 
+//Eval()
 //toPrecision(<number of decimals for exponential>)
+let a;
+let p;
+let z;
 
 function commas(input) {
-  let a = input.split(".");
-  console.log(a);
+  if (input % 1 != 0) {
+    a = input.split(".");
+    z = "1";
+  }
+  if (a[0] < 0) {
+    a[0] = (a[0] * -1);
+    p = 1
+    a[0] = a[0].toString();
+  }
+loop2:
+  if (a[0].length > 3) {
+    if (a[0].length % 3 == 0) {
+      q = 0;
+      a[0] = [a[0].slice(0, 3), ",", a[0].slice(3)].join('');
+      break loop2;
+    }
+    if (a[0].length % 3 == 1) {
+      q = 1
+      a[0] = [a[0].slice(0, 1), ",", a[0].slice(1)].join('');
+      break loop2;
+    }
+    if (a[0].length % 3 == 2) {
+      q = 2;
+      a[0] = [a[0].slice(0, 2), ",", a[0].slice(2)].join('');
+      break loop2;
+    }
+  }
+loop3:
+  if (a[0].length > 0) {
+    if (q == 0) {
+      a[0] = [a[0].slice(0, 7), ",", a[0].slice(7)].join('');
+      break loop3;
+    }
+    if (q == 1) {
+      a[0] = [a[0].slice(0, 8), ",", a[0].slice(8)].join('');
+      break loop3;
+    }
+    if (q == 2) {
+      a[0] = [a[0].slice(0, 9), ",", a[0].slice(9)].join('');
+      break loop3;
+    }
+  }
+  console.log(a[0]);
 }
-let b = "11114.555"
+let b = "-1111114.555"
 commas(b);
 
 
@@ -67,14 +113,14 @@ function button0() {
     w = 0;
     let p = document.getElementById("display");
     str += 0;
-    if(str.length > 10) str = str.substring(0,10);
+    if(str.length > 10) str = str.substring(0,9);
     p.innerHTML = str;
     w++;
     str = "";
   } else if (v > 0) {
     let p = document.getElementById("display");
     str += "0";
-    if(str.length > 10) str = str.substring(0,10);
+    if(str.length > 10) str = str.substring(0,9);
     p.innerHTML = str;
     w++;
   }
@@ -93,14 +139,14 @@ function button1() {
     h = 1;
     let p = document.getElementById("display");
     str += "1";
-    if(str.length > 10) str = str.substring(0,10);
+    if(str.length > 10) str = str.substring(0,9);
     p.innerHTML = str;
     w++;
     v++;
   } else {
     let p = document.getElementById("display");
     str += "1";
-    if(str.length > 10) str = str.substring(0,10);
+    if(str.length > 10) str = str.substring(0,9);
     p.innerHTML = str;
     w++;
   }
@@ -119,14 +165,14 @@ function button2() {
     w = 0;
     let p = document.getElementById("display");
     str += "2";
-    if(str.length > 10) str = str.substring(0,10);
+    if(str.length > 10) str = str.substring(0,9);
     p.innerHTML = str;
     w++;
     v++;
   } else {
     let p = document.getElementById("display");
     str += "2";
-    if(str.length > 10) str = str.substring(0,10);
+    if(str.length > 10) str = str.substring(0,9);
     p.innerHTML = str;
     w++;
   }
@@ -145,14 +191,14 @@ function button3() {
     w = 0;
     let p = document.getElementById("display");
     str += "3";
-    if(str.length > 10) str = str.substring(0,10);
+    if(str.length > 10) str = str.substring(0,9);
     p.innerHTML = str;
     w++;
     v++;
   } else {
     let p = document.getElementById("display");
     str += "3";
-    if(str.length > 10) str = str.substring(0,10);
+    if(str.length > 10) str = str.substring(0,9);
     p.innerHTML = str;
     w++;
   }
@@ -171,14 +217,14 @@ function button4() {
     w = 0;
     let p = document.getElementById("display");
     str += "4";
-    if(str.length > 10) str = str.substring(0,10);
+    if(str.length > 10) str = str.substring(0,9);
     p.innerHTML = str;
     w++;
     v++;
   } else {
     let p = document.getElementById("display");
     str += "4";
-    if(str.length > 10) str = str.substring(0,10);
+    if(str.length > 10) str = str.substring(0,9);
     p.innerHTML = str;
     w++;
   }
@@ -197,14 +243,14 @@ function button5() {
     w = 0;
     let p = document.getElementById("display");
     str += "5";
-    if(str.length > 10) str = str.substring(0,10);
+    if(str.length > 10) str = str.substring(0,9);
     p.innerHTML = str;
     w++;
     v++;
   } else {
     let p = document.getElementById("display");
     str += "5";
-    if(str.length > 10) str = str.substring(0,10);
+    if(str.length > 10) str = str.substring(0,9);
     p.innerHTML = str;
     w++;
   }
@@ -223,14 +269,14 @@ function button6() {
     w = 0;
     let p = document.getElementById("display");
     str += "6";
-    if(str.length > 10) str = str.substring(0,10);
+    if(str.length > 10) str = str.substring(0,9);
     p.innerHTML = str;
     w++;
     v++;
   } else {
     let p = document.getElementById("display");
     str += "6";
-    if(str.length > 10) str = str.substring(0,10);
+    if(str.length > 10) str = str.substring(0,9);
     p.innerHTML = str;
     w++;
   }
@@ -249,14 +295,14 @@ function button7() {
     w = 0;
     let p = document.getElementById("display");
     str += "7";
-    if(str.length > 10) str = str.substring(0,10);
+    if(str.length > 10) str = str.substring(0,9);
     p.innerHTML = str;
     w++;
     v++;
   } else {
     let p = document.getElementById("display");
     str += "7";
-    if(str.length > 10) str = str.substring(0,10);
+    if(str.length > 10) str = str.substring(0,9);
     p.innerHTML = str;
     w++;
   }
@@ -275,7 +321,7 @@ function button8() {
     w = 0;
     let p = document.getElementById("display");
     str += "8";
-    if(str.length > 10) str = str.substring(0,10);
+    if(str.length > 10) str = str.substring(0,9);
     p.innerHTML = str;
     w++;
     console.log(w);
@@ -283,7 +329,7 @@ function button8() {
   } else {
     let p = document.getElementById("display");
     str += "8";
-    if(str.length > 10) str = str.substring(0,10);
+    if(str.length > 10) str = str.substring(0,9);
     p.innerHTML = str;
     w++;
   }
@@ -302,14 +348,14 @@ function button9() {
     w = 0;
     let p = document.getElementById("display");
     str += "9";
-    if(str.length > 10) str = str.substring(0,10);
+    if(str.length > 10) str = str.substring(0,9);
     p.innerHTML = str;
     w++;
     v++;
   } else {
     let p = document.getElementById("display");
     str += "9";
-    if (str.length > 10) str = str.substring(0,10);
+    if (str.length > 10) str = str.substring(0,9);
     p.innerHTML = str;
     w++;
   }
@@ -601,6 +647,7 @@ function percent() {
 //Commas
 //Scientific notation in general
 //Error when clicking one of the operations first and in general
+// Chaining Operations you need order of Operations
 //Percantage + Negation Chain
 //Fix 0
 //Clicking 0 or a number after clicking equals on a string
