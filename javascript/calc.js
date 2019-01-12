@@ -10,6 +10,10 @@ let w = 0;
 let i = 0;
 let h = 0;
 let q = 0;
+let a = [0, 0];
+let m = 0;
+let z = 0;
+let o = 0;
 
 /* let num = "040000.0000000";
 num = Number(num);
@@ -23,85 +27,73 @@ console.log(number);
 console.log(number.length);
 */
 
-function convert() {
+function convert(input) {
 
-  /*
-  if (product > 1) {
-    let length = product.length - 1;
-    product = product/(10 ** length);
-    product = product.toFixed(2);
-    product = product*(10 ** length);
-    product = product.toString();
-    product = Number(product);
-    product = product.toExponential();
-  } else if (product < 1) {
-    product = Number(product);
-    console.log(product);
-    product = product.toFixed(10);
-    console.log(product);
-    product = Number(product);
-    product = product.toExponential();
-  }
-*/
+  input = Number(input);
+  return(input.toPrecision(3));
+
 }
 
 //Eval()
-//toPrecision(<number of decimals for exponential>)
-let a;
-let p;
-let z;
+//toPrecision(<number of sigfigs for exponential>)
+
 
 function commas(input) {
-  if (input % 1 != 0) {
-    a = input.split(".");
-    z = "1";
+    if (input % 1 != 0) {
+      input = input.toString();
+      a = input.split(".");
+      z = 1;
+    } else {
+      a[0] = input;
+    }
+    if (a[0] < 0) {
+      a[0] = Number(a[0]);
+      a[0] = (a[0] * -1);
+      a[0] = a[0].toString();
+      m = 1;
+    }
+    if (a[0].length > 3) {
+      q = a[0].length % 3;
+      if (a[0].length > 6) {
+        switch (a[0].length % 3) {
+          case 0:
+            a[0] = [a[0].slice(0, 6), ",", a[0].slice(6)].join('');
+            break;
+          case 1:
+            a[0] = [a[0].slice(0, 4), ",", a[0].slice(4)].join('');
+            break;
+          case 2:
+            a[0] = [a[0].slice(0, 5), ",", a[0].slice(5)].join('');
+            break;
+          default:
+            break;
+        }
+      }
+      switch (q) {
+        case 0:
+          a[0] = [a[0].slice(0, 3), ",", a[0].slice(3)].join('');
+          break;
+        case 1:
+          a[0] = [a[0].slice(0, 1), ",", a[0].slice(1)].join('');
+          break;
+        case 2:
+          a[0] = [a[0].slice(0, 2), ",", a[0].slice(2)].join('');
+          break;
+        default:
+          break;
+      }
   }
-  if (a[0] < 0) {
-    a[0] = (a[0] * -1);
-    p = 1
-    a[0] = a[0].toString();
-  }
-loop2:
-  if (a[0].length > 3) {
-    if (a[0].length % 3 == 0) {
-      q = 0;
-      a[0] = [a[0].slice(0, 3), ",", a[0].slice(3)].join('');
-      break loop2;
-    }
-    if (a[0].length % 3 == 1) {
-      q = 1
-      a[0] = [a[0].slice(0, 1), ",", a[0].slice(1)].join('');
-      break loop2;
-    }
-    if (a[0].length % 3 == 2) {
-      q = 2;
-      a[0] = [a[0].slice(0, 2), ",", a[0].slice(2)].join('');
-      break loop2;
-    }
-  }
-loop3:
-  if (a[0].length > 0) {
-    if (q == 0) {
-      a[0] = [a[0].slice(0, 7), ",", a[0].slice(7)].join('');
-      break loop3;
-    }
-    if (q == 1) {
-      a[0] = [a[0].slice(0, 8), ",", a[0].slice(8)].join('');
-      break loop3;
-    }
-    if (q == 2) {
-      a[0] = [a[0].slice(0, 9), ",", a[0].slice(9)].join('');
-      break loop3;
-    }
-  }
-  console.log(a[0]);
+  let x = a[0];
+  input = a[0];
+  if (z == 1) a[0] = x + "." + a[1], input = a[0];
+  if (m == 1) input = "-" + a[0];
+  z = 0;
+  m = 0;
+  a = ["", ""];
+  return(input);
 }
-let b = "-1111114.555"
-commas(b);
-
 
 function button0() {
-  console.log(w);
   if (v == 0) {
     i = 0;
     product = "";
@@ -113,21 +105,24 @@ function button0() {
     w = 0;
     let p = document.getElementById("display");
     str += 0;
-    if(str.length > 10) str = str.substring(0,9);
-    p.innerHTML = str;
+    if(str.length > 9) str = str.substring(0,9);
+    let u = commas(str);
+    p.innerHTML = u;
     w++;
     str = "";
   } else if (v > 0) {
     let p = document.getElementById("display");
     str += "0";
-    if(str.length > 10) str = str.substring(0,9);
-    p.innerHTML = str;
+    if (str.length > 9) str = str.substring(0,9);
+    let u = commas(str);
+    p.innerHTML = u;
     w++;
   }
 }
 
 function button1() {
   if (v == 0) {
+    str = "";
     i = 0;
     product = "";
     factor1 = "";
@@ -139,21 +134,24 @@ function button1() {
     h = 1;
     let p = document.getElementById("display");
     str += "1";
-    if(str.length > 10) str = str.substring(0,9);
-    p.innerHTML = str;
+    if(str.length > 9) str = str.substring(0,9);
+    let u = commas(str);
+    p.innerHTML = u;
     w++;
     v++;
   } else {
     let p = document.getElementById("display");
     str += "1";
-    if(str.length > 10) str = str.substring(0,9);
-    p.innerHTML = str;
+    if(str.length > 9) str = str.substring(0,9);
+    let u = commas(str);
+    p.innerHTML = u;
     w++;
   }
 }
 
 function button2() {
   if (v == 0) {
+    str = "";
     i = 0;
     product = "";
     factor1 = "";
@@ -165,21 +163,24 @@ function button2() {
     w = 0;
     let p = document.getElementById("display");
     str += "2";
-    if(str.length > 10) str = str.substring(0,9);
-    p.innerHTML = str;
+    if(str.length > 9) str = str.substring(0,9);
+    let u = commas(str);
+    p.innerHTML = u;
     w++;
     v++;
   } else {
     let p = document.getElementById("display");
     str += "2";
-    if(str.length > 10) str = str.substring(0,9);
-    p.innerHTML = str;
+    if(str.length > 9) str = str.substring(0,9);
+    let u = commas(str);
+    p.innerHTML = u;
     w++;
   }
 }
 
 function button3() {
   if (v == 0) {
+    str = "";
     i = 0;
     product = "";
     factor1 = "";
@@ -191,21 +192,24 @@ function button3() {
     w = 0;
     let p = document.getElementById("display");
     str += "3";
-    if(str.length > 10) str = str.substring(0,9);
-    p.innerHTML = str;
+    if(str.length > 9) str = str.substring(0,9);
+    let u = commas(str);
+    p.innerHTML = u;
     w++;
     v++;
   } else {
     let p = document.getElementById("display");
     str += "3";
-    if(str.length > 10) str = str.substring(0,9);
-    p.innerHTML = str;
+    if(str.length > 9) str = str.substring(0,9);
+    let u = commas(str);
+    p.innerHTML = u;
     w++;
   }
 }
 
 function button4() {
   if (v == 0) {
+    str = "";
     i = 0;
     product = "";
     factor1 = "";
@@ -217,21 +221,24 @@ function button4() {
     w = 0;
     let p = document.getElementById("display");
     str += "4";
-    if(str.length > 10) str = str.substring(0,9);
-    p.innerHTML = str;
+    if(str.length > 9) str = str.substring(0,9);
+    let u = commas(str);
+    p.innerHTML = u;
     w++;
     v++;
   } else {
     let p = document.getElementById("display");
     str += "4";
-    if(str.length > 10) str = str.substring(0,9);
-    p.innerHTML = str;
+    if(str.length > 9) str = str.substring(0,9);
+    let u = commas(str);
+    p.innerHTML = u;
     w++;
   }
 }
 
 function button5() {
   if (v == 0) {
+    str = "";
     i = 0;
     product = "";
     factor1 = "";
@@ -243,21 +250,24 @@ function button5() {
     w = 0;
     let p = document.getElementById("display");
     str += "5";
-    if(str.length > 10) str = str.substring(0,9);
-    p.innerHTML = str;
+    if(str.length > 9) str = str.substring(0,9);
+    let u = commas(str);
+    p.innerHTML = u;
     w++;
     v++;
   } else {
     let p = document.getElementById("display");
     str += "5";
-    if(str.length > 10) str = str.substring(0,9);
-    p.innerHTML = str;
+    if(str.length > 9) str = str.substring(0,9);
+    let u = commas(str);
+    p.innerHTML = u;
     w++;
   }
 }
 
 function button6() {
   if (v == 0) {
+    str = "";
     i = 0;
     product = "";
     factor1 = "";
@@ -269,21 +279,24 @@ function button6() {
     w = 0;
     let p = document.getElementById("display");
     str += "6";
-    if(str.length > 10) str = str.substring(0,9);
-    p.innerHTML = str;
+    if(str.length > 9) str = str.substring(0,9);
+    let u = commas(str);
+    p.innerHTML = u;
     w++;
     v++;
   } else {
     let p = document.getElementById("display");
     str += "6";
-    if(str.length > 10) str = str.substring(0,9);
-    p.innerHTML = str;
+    if(str.length > 9) str = str.substring(0,9);
+    let u = commas(str);
+    p.innerHTML = u;
     w++;
   }
 }
 
 function button7() {
   if (v == 0) {
+    str = "";
     i = 0;
     product = "";
     factor1 = "";
@@ -295,21 +308,24 @@ function button7() {
     w = 0;
     let p = document.getElementById("display");
     str += "7";
-    if(str.length > 10) str = str.substring(0,9);
-    p.innerHTML = str;
+    if(str.length > 9) str = str.substring(0,9);
+    let u = commas(str);
+    p.innerHTML = u;
     w++;
     v++;
   } else {
     let p = document.getElementById("display");
     str += "7";
-    if(str.length > 10) str = str.substring(0,9);
-    p.innerHTML = str;
+    if(str.length > 9) str = str.substring(0,9);
+    let u = commas(str);
+    p.innerHTML = u;
     w++;
   }
 }
 
 function button8() {
   if (v == 0) {
+    str = "";
     i = 0;
     product = "";
     factor1 = "";
@@ -321,22 +337,24 @@ function button8() {
     w = 0;
     let p = document.getElementById("display");
     str += "8";
-    if(str.length > 10) str = str.substring(0,9);
-    p.innerHTML = str;
+    if(str.length > 9) str = str.substring(0,9);
+    let u = commas(str);
+    p.innerHTML = u;
     w++;
-    console.log(w);
     v++;
   } else {
     let p = document.getElementById("display");
     str += "8";
-    if(str.length > 10) str = str.substring(0,9);
-    p.innerHTML = str;
+    if(str.length > 9) str = str.substring(0,9);
+    let u = commas(str);
+    p.innerHTML = u;
     w++;
   }
 }
 
 function button9() {
   if (v == 0) {
+    str = "";
     i = 0;
     product = "";
     factor1 = "";
@@ -348,15 +366,17 @@ function button9() {
     w = 0;
     let p = document.getElementById("display");
     str += "9";
-    if(str.length > 10) str = str.substring(0,9);
-    p.innerHTML = str;
+    if(str.length > 9) str = str.substring(0,9);
+    let u = commas(str);
+    p.innerHTML = u;
     w++;
     v++;
   } else {
     let p = document.getElementById("display");
     str += "9";
-    if (str.length > 10) str = str.substring(0,9);
-    p.innerHTML = str;
+    if (str.length > 9) str = str.substring(0,9);
+    let u = commas(str);
+    p.innerHTML = u;
     w++;
   }
 }
@@ -369,17 +389,22 @@ function add() {
       if (r < 2) {
         let p = document.getElementById("display");
         factor1 = Number(str);
-        p.innerHTML = str;
+        let u = commas(str);
+        p.innerHTML = u;
         str = "";
         r++;
         x = 1;
         v = 1;
+        o = 0;
       } else {
         let p = document.getElementById("display");
         if (x < 2) equal();
-        p.innerHTML = product;
+        let u = commas(product);
+        if (product > 999999999 || product < -999999999 || product.length > 10) u = convert(product);
+        p.innerHTML = u;
         str = "";
         x = 1;
+        o = 0;
         v = 1;
       }
       i = 1;
@@ -397,18 +422,22 @@ function subtract() {
       if (r < 2) {
         let p = document.getElementById("display");
         factor1 = Number(str);
-        p.innerHTML = str;
+        let u = commas(str);
+        p.innerHTML = u;
         str = "";
         r++;
-        console.log(x , r);
         v = 1;
+        o = 0;
         x = 1;
       } else {
         let p = document.getElementById("display");
         if (x < 2) equal();
-        p.innerHTML = product;
+        let u = commas(product);
+        if (product > 999999999 || product < -999999999 || product.length > 10) u = convert(product);
+        p.innerHTML = u;
         str = "";
         x = 1;
+        o = 0;
         v = 1;
       }
       i = 2;
@@ -424,20 +453,23 @@ function multiply() {
       if (r < 2) {
         let p = document.getElementById("display");
         factor1 = Number(str);
-        p.innerHTML = str;
+        let u = commas(str);
+        p.innerHTML = u;
         str = "";
         x = 1;
+        o = 0;
         v = 1;
         r++;
-        if (product.length > 10) convert();
       } else {
         let p = document.getElementById("display");
         if (x < 2) equal();
-        p.innerHTML = product;
+        let u = commas(product);
+        if (product > 999999999 || product < -999999999 || product.length > 10) u = convert(product);
+        p.innerHTML = u;
         str = "";
         x = 1;
+        o = 0;
         v = 1;
-        if (product.length > 10) convert();
       }
       i = 3;
   }
@@ -452,21 +484,23 @@ function divide() {
       if (r < 2) {
         let p = document.getElementById("display");
         factor1 = Number(str);
-        p.innerHTML = str;
+        let u = commas(str);
+        p.innerHTML = u;
         str = "";
         x = 1;
+        o = 0;
         v = 1;
         r++;
-        console.log(r);
-        if (product.length > 10) convert();
       } else {
         let p = document.getElementById("display");
         if (x < 2) equal();
-        p.innerHTML = product;
+        let u = commas(product);
+        if (product > 999999999 || product < -999999999 || product.length > 10) u = convert(product);
+        p.innerHTML = u;
         str = "";
         x = 1;
+        o = 0;
         v = 1;
-        if (product.length > 10) convert();
       }
       i = 4;
   }
@@ -495,22 +529,26 @@ function equal() {
             factor2 = Number(str);
             product = (factor1 + factor2);
             product = product.toString();
-            if (product.length > 10) convert();
-            p.innerHTML = product;
+            let u = commas(product);
+            if (product > 999999999 || product < -999999999 || product.length > 10) u = convert(product);
+            p.innerHTML = u;
             product = Number(product);
             factor1 = product;
             str = "";
             x++;
             v = 0;
+            o = 1;
           } else {
             product = (factor1 + factor2);
             product = product.toString();
-            if (product.length > 10) convert();
-            p.innerHTML = product;
+            let u = commas(product);
+            if (product > 999999999 || product < -999999999 || product.length > 10) u = convert(product);
+            p.innerHTML = u;
             product = Number(product);
             factor1 = product;
             str = "";
             v = 0;
+            o = 1;
             x++;
           }
           break;
@@ -519,24 +557,27 @@ function equal() {
             factor2 = Number(str);
             product = (factor1 - factor2);
             product = product.toString();
-            if (product.length > 10) convert();
-            p.innerHTML = product;
+            let u = commas(product);
+            if (product > 999999999 || product < -999999999 || product.length > 10) u = convert(product);
+            p.innerHTML = u;
             product = Number(product);
             factor1 = product;
             str = "";
             v = 0;
+            o = 1;
             x++;
           } else {
             product = (factor1 - factor2);
             product = product.toString();
-            if (product.length > 10) convert();
-            if (product.length > 10) convert();
-            p.innerHTML = product;
+            let u = commas(product);
+            if (product > 999999999 || product < -999999999 || product.length > 10) u = convert(product);
+            p.innerHTML = u;
             product = Number(product);
             factor1 = product;
             str = "";
             v = 0;
             x++;
+            o = 1;
           }
           break;
         case 3:
@@ -544,52 +585,55 @@ function equal() {
             factor2 = Number(str);
             product = (factor1 * factor2);
             product = product.toString();
-            if (product.length > 10) convert();
-            console.log(product);
-            p.innerHTML = product;
+            let u = commas(product);
+            if (product > 999999999 || product < -999999999 || product.length > 10) u = convert(product);
+            p.innerHTML = u;
             product = Number(product);
             factor1 = product;
             str = "";
+            o = 1;
             v = 0;
             x++;
           } else {
             product = (factor1 * factor2);
             product = product.toString();
-            if (product.length > 10) convert();
-            console.log(product);
-            p.innerHTML = product;
+            let u = commas(product);
+            if (product > 999999999 || product < -999999999 || product.length > 10) u = convert(product);
+            p.innerHTML = u;
             product = Number(product);
             factor1 = product;
             str = "";
             v = 0;
+            o = 1;
             x++;
           }
           break;
         case 4:
           if (x < 2) {
-            console.log(factor1);
             factor2 = Number(str);
-            console.log(factor2);
             product = (factor1 / factor2);
             product = product.toString();
-            if (product.length > 10) convert();
-            console.log(product);
-            p.innerHTML = product;
+            let u = commas(product);
+            if (product > 999999999 || product < -999999999 || product.length > 10) u = convert(product);
+            p.innerHTML = u;
             product = Number(product);
             factor1 = product;
             str = "";
             v = 0;
+            o = 1;
             x++;
           } else {
             product = (factor1 / factor2);
             product = product.toString();
-            if (product.length > 10) convert();
-            console.log(product);
-            p.innerHTML = product;
+            let u = commas(product);
+            if (product > 999999999 || product < -999999999 || product.length > 10) u = convert(product);
+            console.log(u);
+            p.innerHTML = u;
             product = Number(product);
             factor1 = product;
             str = "";
             v = 0;
+            o = 1;
             x++;
           }
           break;
@@ -605,7 +649,6 @@ function allClear() {
   product = "";
   factor1 = "";
   factor2 = "";
-  //let str = 0;
   p.innerHTML = 0;
   str = "";
   i = 0;
@@ -614,44 +657,81 @@ function allClear() {
   y = 0;
   r = 1;
   w = 0;
+  h = 0;
+  q = 0;
+  a = [0, 0];
+  m = 0;
+  z = 0;
+  o = 0;
 }
 
-//fix
+//fix later
 function positiveAndNegative() {
   let p = document.getElementById("display");
-  str = (str*(-1));
-  p.innerHTML = str;
-  str = str.toString();
+  switch (o) {
+    case 0:
+    console.log(str);
+      str = (str*(-1));
+      console.log(commas(str));
+      p.innerHTML = commas(str);
+      str = str.toString();
+    case 1:
+      str = (product * (-1));
+      let x = commas(str);
+      p.innerHTML = x;
+      str = str.toString();
+      o = 0;
+    default:
+      break;
+  }
 }
-//fix
+
+//fix a little more
 function percent() {
   let p = document.getElementById("display");
-  if (factor1 == 0) {
-    str = (Number(str)/100); //
-    p.innerHTML = str;
-    str = "";
-  } else {
-    percent = (Number(str)/100); //.3
-    console.log(percent);
-    product = (factor1 * percent);//30
-    p.innerHTML = product;
+  if (factor1 == "") {
+    str = Number(str);
+    str = str/100;
+    let u = str;
+    if (str > 999 || str < -999) u = commas(str);
+    str = str.toString();
+    console.log(str);
+    if (str > 999999999 || str < -999999999 || str.length > 10) u = convert(str);
+    console.log(u, str);
+    p.innerHTML = u;
+    v = 0;
+  } else if (x < 2) {
+    percent = (Number(str)/100);
+    factor2 = Number(factor1 * percent);
+    if (x < 2) equal();
+    let u = commas(product);
+    str = str.toString();
+    if (str > 999999999 || str < -999999999 || str.length > 10) u = convert(str);
+    p.innerHTML = u;
     factor1 = Number(product);
     str = "";
     x++;
     v = 0;
+  } else {
+    let p = document.getElementById("display");
+    if (x < 2) equal();
+    let u = commas(product);
+    str = str.toString();
+    if (str > 999999999 || str < -999999999 || str.length > 10) u = convert(str);
+    p.innerHTML = u;
+    str = "";
+    x = 1;
+    v = 1;
   }
 }
 
 //Need to Have or fix
 
-//Commas
-//Scientific notation in general
-//Error when clicking one of the operations first and in general
 // Chaining Operations you need order of Operations
 //Percantage + Negation Chain
-//Fix 0
-//Clicking 0 or a number after clicking equals on a string
-
+//Fix 0 ransome 0s befroe products or factors
+//max number limit
+// divide by 0
 /*
 Powers x2, x3, and xy)
 Roots (√x, 3√x, and y√x)
