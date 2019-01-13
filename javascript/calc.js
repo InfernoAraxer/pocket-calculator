@@ -932,6 +932,8 @@ function equal() {
             operations = []
             factor = [factor[0], factor[1]]
             }
+            product = (product) ? product.toString() : factor[l];
+            products[l] = (product) ? product.toString() : factor[l];
 
             if (!isFinite(product)) {
               let p = document.getElementById("display");
@@ -959,8 +961,6 @@ function equal() {
               v++;
             } else {
 
-              product = (product) ? product.toString() : factor[l];
-              products[l] = (product) ? product.toString() : factor[l];
               let u = commas(product);
               if (product > 999999999 || product < -999999999 || product.length > 10) u = convert(product);
               p.innerHTML = u;
