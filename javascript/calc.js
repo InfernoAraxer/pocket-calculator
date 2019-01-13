@@ -640,7 +640,7 @@ function multiply() {
       } else {
         let p = document.getElementById("display");
         if (x < 2) equal(); // lol
-        let u = commas(product);
+        let u = commas(products[l]);
         if (product > 999999999 || product < -999999999 || product.length > 10) u = convert(product);
         p.innerHTML = u;
         str = "";
@@ -849,6 +849,7 @@ function equal() {
               }
               product = eval(side);
             }
+            console.log(side)
 
             if (s == 0) {
             side = factor[0];
@@ -861,12 +862,11 @@ function equal() {
             l = 0;
             factor[l] = product;
             }
-            products[l] = product.toString();
+
+              products[l] = product.toString();
               let u = commas(product);
               if (product > 999999999 || product < -999999999 || product.length > 10) u = convert(product);
               p.innerHTML = u;
-              product = Number(product);
-              products[l] = product.toString();
               str = "";
               o = 1;
               v = 0;
