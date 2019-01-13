@@ -1,7 +1,5 @@
 let str = "";
 let product = "";
-let factor1 = "";
-let factor2 = "";
 let v = 0;
 let x = 1;
 let y = 0;
@@ -14,6 +12,14 @@ let a = [0, 0];
 let m = 0;
 let z = 0;
 let o = 0;
+let factor = [];
+let operations = [];
+let products = [];
+let l = 0;
+let j = ["+", "-", "*", "/"];
+let k = 0;
+let side;
+let n = 0;
 
 /* let num = "040000.0000000";
 num = Number(num);
@@ -95,14 +101,23 @@ function commas(input) {
 
 function button0() {
   if (v == 0) {
+    q = 0;
+    o = 0;
+    factor = [];
+    operations = [];
+    products = [];
+    l = 0;
+    k = 0;
+    side = 0;
+    n = 0;
+    str = "";
     i = 0;
     product = "";
-    factor1 = "";
-    factor2 = "";
     x = 1;
     y = 0;
     r = 1;
     w = 0;
+    h = 1;
     let p = document.getElementById("display");
     str += 0;
     if(str.length > 9) str = str.substring(0,9);
@@ -122,11 +137,18 @@ function button0() {
 
 function button1() {
   if (v == 0) {
+    q = 0;
+    o = 0;
+    factor = [];
+    operations = [];
+    products = [];
+    l = 0;
+    k = 0;
+    side = 0;
+    n = 0;
     str = "";
     i = 0;
     product = "";
-    factor1 = "";
-    factor2 = "";
     x = 1;
     y = 0;
     r = 1;
@@ -134,7 +156,7 @@ function button1() {
     h = 1;
     let p = document.getElementById("display");
     str += "1";
-    if(str.length > 9) str = str.substring(0,9);
+    if (str.length > 9) str = str.substring(0,9);
     let u = commas(str);
     p.innerHTML = u;
     w++;
@@ -142,25 +164,37 @@ function button1() {
   } else {
     let p = document.getElementById("display");
     str += "1";
-    if(str.length > 9) str = str.substring(0,9);
+    if (str.length > 9) str = str.substring(0,9);
     let u = commas(str);
     p.innerHTML = u;
     w++;
+    if (k == 1) {
+      operations[l] = j[i-1];
+      k = 0;
+      l++;
+    }
   }
 }
 
 function button2() {
   if (v == 0) {
+    q = 0;
+    o = 0;
+    factor = [];
+    operations = [];
+    products = [];
+    l = 0;
+    k = 0;
+    side = 0;
+    n = 0;
     str = "";
     i = 0;
     product = "";
-    factor1 = "";
-    factor2 = "";
     x = 1;
     y = 0;
-    h = 1;
     r = 1;
     w = 0;
+    h = 1;
     let p = document.getElementById("display");
     str += "2";
     if(str.length > 9) str = str.substring(0,9);
@@ -175,21 +209,33 @@ function button2() {
     let u = commas(str);
     p.innerHTML = u;
     w++;
+    if (k == 1) {
+      operations[l] = j[i-1];
+      k = 0;
+      l++;
+    }
   }
 }
 
 function button3() {
   if (v == 0) {
+    q = 0;
+    o = 0;
+    factor = [];
+    operations = [];
+    products = [];
+    l = 0;
+    k = 0;
+    side = 0;
+    n = 0;
     str = "";
     i = 0;
     product = "";
-    factor1 = "";
-    factor2 = "";
     x = 1;
     y = 0;
-    h = 1;
     r = 1;
     w = 0;
+    h = 1;
     let p = document.getElementById("display");
     str += "3";
     if(str.length > 9) str = str.substring(0,9);
@@ -204,21 +250,33 @@ function button3() {
     let u = commas(str);
     p.innerHTML = u;
     w++;
+    if (k == 1) {
+      operations[l] = j[i-1];
+      k = 0;
+      l++;
+    }
   }
 }
 
 function button4() {
   if (v == 0) {
+    q = 0;
+    o = 0;
+    factor = [];
+    operations = [];
+    products = [];
+    l = 0;
+    k = 0;
+    side = 0;
+    n = 0;
     str = "";
     i = 0;
     product = "";
-    factor1 = "";
-    factor2 = "";
     x = 1;
     y = 0;
-    h = 1;
     r = 1;
     w = 0;
+    h = 1;
     let p = document.getElementById("display");
     str += "4";
     if(str.length > 9) str = str.substring(0,9);
@@ -233,21 +291,33 @@ function button4() {
     let u = commas(str);
     p.innerHTML = u;
     w++;
+    if (k == 1) {
+      operations[l] = j[i-1];
+      k = 0;
+      l++;
+    }
   }
 }
 
 function button5() {
   if (v == 0) {
+    q = 0;
+    o = 0;
+    factor = [];
+    operations = [];
+    products = [];
+    l = 0;
+    k = 0;
+    side = 0;
+    n = 0;
     str = "";
     i = 0;
     product = "";
-    factor1 = "";
-    factor2 = "";
     x = 1;
-    h = 1;
     y = 0;
     r = 1;
     w = 0;
+    h = 1;
     let p = document.getElementById("display");
     str += "5";
     if(str.length > 9) str = str.substring(0,9);
@@ -262,21 +332,33 @@ function button5() {
     let u = commas(str);
     p.innerHTML = u;
     w++;
+    if (k == 1) {
+      operations[l] = j[i-1];
+      k = 0;
+      l++;
+    }
   }
 }
 
 function button6() {
   if (v == 0) {
+    q = 0;
+    o = 0;
+    factor = [];
+    operations = [];
+    products = [];
+    l = 0;
+    k = 0;
+    side = 0;
+    n = 0;
     str = "";
     i = 0;
     product = "";
-    factor1 = "";
-    factor2 = "";
     x = 1;
     y = 0;
-    h = 1;
     r = 1;
     w = 0;
+    h = 1;
     let p = document.getElementById("display");
     str += "6";
     if(str.length > 9) str = str.substring(0,9);
@@ -291,21 +373,33 @@ function button6() {
     let u = commas(str);
     p.innerHTML = u;
     w++;
+    if (k == 1) {
+      operations[l] = j[i-1];
+      k = 0;
+      l++;
+    }
   }
 }
 
 function button7() {
   if (v == 0) {
+    q = 0;
+    o = 0;
+    factor = [];
+    operations = [];
+    products = [];
+    l = 0;
+    k = 0;
+    side = 0;
+    n = 0;
     str = "";
     i = 0;
     product = "";
-    factor1 = "";
-    factor2 = "";
     x = 1;
     y = 0;
-    h = 1;
     r = 1;
     w = 0;
+    h = 1;
     let p = document.getElementById("display");
     str += "7";
     if(str.length > 9) str = str.substring(0,9);
@@ -320,21 +414,33 @@ function button7() {
     let u = commas(str);
     p.innerHTML = u;
     w++;
+    if (k == 1) {
+      operations[l] = j[i-1];
+      k = 0;
+      l++;
+    }
   }
 }
 
 function button8() {
   if (v == 0) {
+    q = 0;
+    o = 0;
+    factor = [];
+    operations = [];
+    products = [];
+    l = 0;
+    k = 0;
+    side = 0;
+    n = 0;
     str = "";
     i = 0;
     product = "";
-    factor1 = "";
-    factor2 = "";
     x = 1;
     y = 0;
-    h = 1;
     r = 1;
     w = 0;
+    h = 1;
     let p = document.getElementById("display");
     str += "8";
     if(str.length > 9) str = str.substring(0,9);
@@ -349,21 +455,33 @@ function button8() {
     let u = commas(str);
     p.innerHTML = u;
     w++;
+    if (k == 1) {
+      operations[l] = j[i-1];
+      k = 0;
+      l++;
+    }
   }
 }
 
 function button9() {
   if (v == 0) {
+    q = 0;
+    o = 0;
+    factor = [];
+    operations = [];
+    products = [];
+    l = 0;
+    k = 0;
+    side = 0;
+    n = 0;
     str = "";
     i = 0;
     product = "";
-    factor1 = "";
-    factor2 = "";
     x = 1;
-    h = 1;
     y = 0;
     r = 1;
     w = 0;
+    h = 1;
     let p = document.getElementById("display");
     str += "9";
     if(str.length > 9) str = str.substring(0,9);
@@ -378,6 +496,11 @@ function button9() {
     let u = commas(str);
     p.innerHTML = u;
     w++;
+    if (k == 1) {
+      operations[l] = j[i-1];
+      k = 0;
+      l++;
+    }
   }
 }
 
@@ -386,9 +509,11 @@ function add() {
     case 0:
       break;
     case 1:
+      s = 1;
       if (r < 2) {
         let p = document.getElementById("display");
-        factor1 = Number(str);
+        factor[l] = str.toString();
+        console.log(l, factor)
         let u = commas(str);
         p.innerHTML = u;
         str = "";
@@ -396,17 +521,27 @@ function add() {
         x = 1;
         v = 1;
         o = 0;
+        k = 1;
       } else {
         let p = document.getElementById("display");
         if (x < 2) equal();
+        side = factor[0];
+        let n = 0;
+        for (let b = 0; b < operations.length; b++) {
+          side += operations[n] + factor[n+1];
+          n++;
+        }
+        product = eval(side);
         let u = commas(product);
         if (product > 999999999 || product < -999999999 || product.length > 10) u = convert(product);
         p.innerHTML = u;
         str = "";
         x = 1;
         o = 0;
+        k = 1;
         v = 1;
       }
+      s = 0;
       i = 1;
     default:
       break;
@@ -419,27 +554,38 @@ function subtract() {
     case 0:
       break;
     case 1:
+      s = 2;
       if (r < 2) {
         let p = document.getElementById("display");
-        factor1 = Number(str);
+        factor[0] = Number(str);
         let u = commas(str);
         p.innerHTML = u;
         str = "";
         r++;
         v = 1;
         o = 0;
+        k = 1;
         x = 1;
       } else {
         let p = document.getElementById("display");
         if (x < 2) equal();
+        side = factor[0];
+        let n = 0;
+        for (let b = 0; b < operations.length; b++) {
+          side += operations[n] + factor[n+1];
+          n++;
+        }
+        product = eval(side);
         let u = commas(product);
         if (product > 999999999 || product < -999999999 || product.length > 10) u = convert(product);
         p.innerHTML = u;
         str = "";
         x = 1;
         o = 0;
+        k = 1;
         v = 1;
       }
+      s = 0;
       i = 2;
   }
 }
@@ -450,6 +596,7 @@ function multiply() {
     case 0:
       break;
     case 1:
+      s = 3;
       if (r < 2) {
         let p = document.getElementById("display");
         factor1 = Number(str);
@@ -459,18 +606,21 @@ function multiply() {
         x = 1;
         o = 0;
         v = 1;
+        k = 1;
         r++;
       } else {
         let p = document.getElementById("display");
         if (x < 2) equal();
-        let u = commas(product);
-        if (product > 999999999 || product < -999999999 || product.length > 10) u = convert(product);
+        let u = commas(products[l-1]);
+        if (product > 999999999 || product < -999999999 || u.length > 10) u = convert(u);
         p.innerHTML = u;
         str = "";
         x = 1;
         o = 0;
+        k = 1;
         v = 1;
       }
+      s = 0;
       i = 3;
   }
 }
@@ -481,6 +631,7 @@ function divide() {
     case 0:
       break;
     case 1:
+      s = 4;
       if (r < 2) {
         let p = document.getElementById("display");
         factor1 = Number(str);
@@ -490,19 +641,22 @@ function divide() {
         x = 1;
         o = 0;
         v = 1;
+        k = 1;
         r++;
       } else {
         let p = document.getElementById("display");
         if (x < 2) equal();
-        let u = commas(product);
-        if (product > 999999999 || product < -999999999 || product.length > 10) u = convert(product);
+        let u = commas(products[l-1]);
+        if (product > 999999999 || product < -999999999 || product.length > 10) u = convert(u);
         p.innerHTML = u;
         str = "";
         x = 1;
         o = 0;
+        k = 1;
         v = 1;
       }
       i = 4;
+      s = 0;
   }
 }
 
@@ -526,14 +680,19 @@ function equal() {
       switch (i) {
         case 1:
           if (x < 2) {
-            factor2 = Number(str);
-            product = (factor1 + factor2);
-            product = product.toString();
+            if (str) factor[l] = Number(str);
+            product = factor[0] + factor[1];
+            if (s == 3 || s == 4) product = factor[l];
+            if (str) products[l-1] = product.toString();
             let u = commas(product);
             if (product > 999999999 || product < -999999999 || product.length > 10) u = convert(product);
             p.innerHTML = u;
-            product = Number(product);
-            factor1 = product;
+            if (s == 3 || s == 4) {
+              factor[l] = product;
+            } else {
+              p = 0;
+              factor[l] = product;
+            }
             str = "";
             x++;
             v = 0;
@@ -582,18 +741,28 @@ function equal() {
           break;
         case 3:
           if (x < 2) {
-            factor2 = Number(str);
-            product = (factor1 * factor2);
-            product = product.toString();
+            if (str) factor[l] = Number(str);
+            if (s == 3 || s == 4) product = (factor[l-1] * factor[l]);
+
+            if (s == 0) {
+            side = factor[0];
+            let n = 0;
+              for (let b = 0; b < operations.length; b++) {
+                side += operations[n] + factor[n+1];
+                n++;
+              }
+            product = eval(side);
+            }
+
+            products[l-1] = product.toString();
             let u = commas(product);
             if (product > 999999999 || product < -999999999 || product.length > 10) u = convert(product);
             p.innerHTML = u;
-            product = Number(product);
-            factor1 = product;
             str = "";
             o = 1;
             v = 0;
             x++;
+
           } else {
             product = (factor1 * factor2);
             product = product.toString();
@@ -647,8 +816,6 @@ function equal() {
 function allClear() {
   let p = document.getElementById("display");
   product = "";
-  factor1 = "";
-  factor2 = "";
   p.innerHTML = 0;
   str = "";
   i = 0;
@@ -659,10 +826,14 @@ function allClear() {
   w = 0;
   h = 0;
   q = 0;
-  a = [0, 0];
-  m = 0;
-  z = 0;
   o = 0;
+  factor = [];
+  operations = [];
+  products = [];
+  l = 0;
+  k = 0;
+  side = 0;
+  n = 0;
 }
 
 //fix later
@@ -730,7 +901,7 @@ function percent() {
 // Chaining Operations you need order of Operations
 //Percantage + Negation Chain
 //Fix 0 ransome 0s befroe products or factors
-//max number limit
+//max number limit (negaton)
 // divide by 0
 /*
 Powers x2, x3, and xy)
