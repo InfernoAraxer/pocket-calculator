@@ -45,7 +45,8 @@ function convert(input) {
 
 
 function commas(input) {
-    if (input % 1 != 0) {
+    input = input.toString();
+    if (input.indexOf(".") > -1) {
       input = input.toString();
       a = input.split(".");
       z = 1;
@@ -726,6 +727,7 @@ function decimal() {
       h = 1;
     } else {
       str += ".";
+      str = commas(str);
       p.innerHTML = str + 0;
       w++;
       v++;
@@ -1052,7 +1054,7 @@ function percent() {
 
 //Need to Have or fix
 
-// Chaining Operations you need order of Operations
+// the equal spam
 //Percantage + Negation Chain
 //Fix 0 ransome 0s befroe products or factors
 //max number limit (negaton)
