@@ -128,6 +128,7 @@ function button0() {
     w++;
     if (k == 1) {
       operations[l] = j[i-1];
+      y = 0;;
       k = 0;
       l++;
     }
@@ -171,6 +172,7 @@ function button1() {
     w++;
     if (k == 1) {
       operations[l] = j[i-1];
+      y = 0;;
       k = 0;
       l++;
     }
@@ -214,6 +216,7 @@ function button2() {
     w++;
     if (k == 1) {
       operations[l] = j[i-1];
+      y = 0;;
       k = 0;
       l++;
     }
@@ -258,6 +261,7 @@ function button3() {
     if (k == 1) {
       operations[l] = j[i-1];
       k = 0;
+      y = 0;;
       l++;
     }
   }
@@ -301,6 +305,7 @@ function button4() {
     if (k == 1) {
       operations[l] = j[i-1];
       k = 0;
+      y = 0;;
       l++;
     }
   }
@@ -343,6 +348,7 @@ function button5() {
     w++;
     if (k == 1) {
       operations[l] = j[i-1];
+      y = 0;;
       k = 0;
       l++;
     }
@@ -387,6 +393,7 @@ function button6() {
     if (k == 1) {
       operations[l] = j[i-1];
       k = 0;
+      y = 0;;
       l++;
     }
   }
@@ -429,6 +436,7 @@ function button7() {
     w++;
     if (k == 1) {
       operations[l] = j[i-1];
+      y = 0;;
       k = 0;
       l++;
     }
@@ -472,6 +480,7 @@ function button8() {
     w++;
     if (k == 1) {
       operations[l] = j[i-1];
+      y = 0;;
       k = 0;
       l++;
     }
@@ -516,6 +525,7 @@ function button9() {
     if (k == 1) {
       operations[l] = j[i-1];
       k = 0;
+      y = 0;;
       l++;
     }
   }
@@ -726,6 +736,7 @@ function divide() {
 }
 
 function decimal() {
+  console.log(y, str.length)
   if (y < 1 && str % 1 == 0 && str.length < 10) {
     y++;
     let p = document.getElementById("display");
@@ -737,8 +748,8 @@ function decimal() {
       h = 1;
     } else {
       str += ".";
-      str = commas(str);
-      p.innerHTML = str + 0;
+      let u = commas(str);
+      p.innerHTML = u + 0;
       w++;
       v++;
     }
