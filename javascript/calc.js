@@ -20,19 +20,9 @@ let j = ["+", "-", "*", "/"];
 let k = 0;
 let side;
 let n = 0;
+let c = "";
 
-/* let num = "040000.0000000";
-num = Number(num);
-num = num.toString();
-console.log(num);
-console.log(num.length);
-let number = ".000004";
-number = Number(number);
-number = number.toString();
-console.log(number);
-console.log(number.length);
-*/
-
+//fix?
 function convert(input) {
 
   input = Number(input);
@@ -599,6 +589,7 @@ function subtract() {
       } else {
         let p = document.getElementById("display");
         if (x < 2) equal();
+
         side = factor[0];
         let n = 0;
         for (let b = 0; b < operations.length; b++) {
@@ -606,6 +597,7 @@ function subtract() {
           n++;
         }
         product = eval(side);
+
         let u = commas(product);
         if (product > 999999999 || product < -999999999 || product.length > 10) u = convert(product);
         p.innerHTML = u;
@@ -640,8 +632,17 @@ function multiply() {
         r++;
       } else {
         let p = document.getElementById("display");
-        if (x < 2) equal(); // lol
-        let u = commas(products[l]);
+        if (x < 2) equal();
+
+        side = factor[0];
+        let n = 0;
+        for (let b = 0; b < operations.length; b++) {
+          side += operations[n] + factor[n+1];
+          n++;
+        }
+        product = eval(side);
+
+        let u = (products[1]) ? commas(products[l]) : product;
         if (product > 999999999 || product < -999999999 || product.length > 10) u = convert(product);
         p.innerHTML = u;
         str = "";
@@ -676,7 +677,16 @@ function divide() {
       } else {
         let p = document.getElementById("display");
         if (x < 2) equal();
-        let u = commas(product);
+
+        side = factor[0];
+        let n = 0;
+        for (let b = 0; b < operations.length; b++) {
+          side += operations[n] + factor[n+1];
+          n++;
+        }
+        product = eval(side);
+
+        let u = (products[1]) ? commas(products[l]) : product;
         if (product > 999999999 || product < -999999999 || product.length > 10) u = convert(product);
         p.innerHTML = u;
         str = "";
@@ -747,6 +757,7 @@ function equal() {
           if (x < 2) {
             if (str) factor[l] = Number(str);
             product = factor[l-1] + factor[l];
+            console.log(product);
             if (s == 3 || s == 4) product = factor[l];
             if (str) products[l] = product.toString();
 
@@ -765,6 +776,7 @@ function equal() {
             l = 0;
             factor[l] = product;
             operations = []
+            factor = [factor[0], factor[1]]
             }
 
             let u = commas(product);
@@ -777,14 +789,14 @@ function equal() {
             v = 0;
             o = 1;
           } else {
-            product = (factor[l] + factor[l-1]);
+            product = (factor[l] + factor[l+1]);
             product = product.toString();
             let u = commas(product);
             product = product.toString();
             if (product > 999999999 || product < -999999999 || (product % 1 == 0 && product.length > 10) || product.length > 10) u = convert(product);
             p.innerHTML = u;
             product = Number(product);
-            factor[l-1] = product;
+            factor[l] = product;
             str = "";
             v = 0;
             o = 1;
@@ -812,7 +824,8 @@ function equal() {
             product = eval(side);
             l = 0;
             factor[l] = product;
-            operations = [];
+            operations = []
+            factor = [factor[0], factor[1]]
             }
 
             let u = commas(product);
@@ -824,13 +837,13 @@ function equal() {
             o = 1;
             x++;
           } else {
-            product = (factor[l-1] - factor[l]);
+            product = (factor[l] - factor[l+1]);
             product = product.toString();
             let u = commas(product);
             if (product > 999999999 || product < -999999999 || product.length > 10) u = convert(product);
             p.innerHTML = u;
             product = Number(product);
-            factor[l-1] = product;
+            factor[l] = product;
             str = "";
             v = 0;
             x++;
@@ -851,21 +864,24 @@ function equal() {
               }
               product = eval(side);
             }
-            console.log(side)
 
             if (s == 0) {
-            side = factor[0];
-            let n = 0;
+              side = factor[0];
+              let n = 0;
               for (let b = 0; b < operations.length; b++) {
                 side += operations[n] + factor[n+1];
                 n++;
               }
-            product = eval(side);
-            l = 0;
-            factor[l] = product;
-            }
+              product = eval(side);
+              l = 0;
+              factor[l] = product;
+              operations = []
+              factor = [factor[0], factor[1]]
+              }
 
-              products[l] = product.toString();
+
+              product = (product) ? product.toString() : factor[l];
+              products[l] = (product) ? product.toString() : factor[l];
               let u = commas(product);
               if (product > 999999999 || product < -999999999 || product.length > 10) u = convert(product);
               p.innerHTML = u;
@@ -875,13 +891,13 @@ function equal() {
               x++;
 
           } else {
-            product = (factor[l] * factor[l-1]);
+            product = (factor[l] * factor[l+1]);
             product = product.toString();
             let u = commas(product);
             if (product > 999999999 || product < -999999999 || product.length > 10) u = convert(product);
             p.innerHTML = u;
             product = Number(product);
-            factor[l-1] = product;
+            factor[l] = product;
             str = "";
             v = 0;
             o = 1;
@@ -913,8 +929,10 @@ function equal() {
             product = eval(side);
             l = 0;
             factor[l] = product;
+            operations = []
+            factor = [factor[0], factor[1]]
             }
-            console.log(!isFinite(product), product,side)
+
             if (!isFinite(product)) {
               let p = document.getElementById("display");
               q = 0;
@@ -940,7 +958,9 @@ function equal() {
               w++;
               v++;
             } else {
-              products[l] = product.toString();
+
+              product = (product) ? product.toString() : factor[l];
+              products[l] = (product) ? product.toString() : factor[l];
               let u = commas(product);
               if (product > 999999999 || product < -999999999 || product.length > 10) u = convert(product);
               p.innerHTML = u;
@@ -953,13 +973,13 @@ function equal() {
             }
 
           } else {
-            product = (factor[l-1] / factor[l]);
+            product = (factor[l] / factor[l+1]);
             product = product.toString();
             let u = commas(product);
             if (product > 999999999 || product < -999999999 || product.length > 10) u = convert(product);
             p.innerHTML = u;
             product = Number(product);
-            factor[l-1] = product;
+            factor[l] = product;
             str = "";
             v = 0;
             o = 1;
@@ -1001,15 +1021,18 @@ function positiveAndNegative() {
   let p = document.getElementById("display");
   switch (o) {
     case 0:
+      str = Number(str);
       str = (str*(-1));
-      p.innerHTML = commas(str);
+      c = commas(str);
+      p.innerHTML = c;
       str = str.toString();
     case 1:
       str = (product * (-1));
-      let x = commas(str);
-      p.innerHTML = x;
+      c = commas(str);
+      p.innerHTML = c;
       str = str.toString();
       o = 0;
+      v = 0;
     default:
       break;
   }
@@ -1054,10 +1077,11 @@ function percent() {
 
 //Need to Have or fix
 
-// the equal spam
+// the equal spam // maybe
 //Percantage + Negation Chain
 //Fix 0 ransome 0s befroe products or factors
 //max number limit (negaton)
+//scientific notation?
 
 /*
 Powers x2, x3, and xy)
