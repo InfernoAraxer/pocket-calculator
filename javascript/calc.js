@@ -521,18 +521,16 @@ function add() {
         v = 1;
         o = 0;
         k = 1;
-      } else {
 
+      } else {
         let p = document.getElementById("display");
         if (x < 2) equal();
         side = factor[0];
-        console.log(side)
         let n = 0;
         for (let b = 0; b < operations.length; b++) {
           side += operations[n] + factor[n+1];
           n++;
         }
-        console.log(side)
         product = eval(side);
         let u = commas(product);
         if (u > 999999999 || u < -999999999 || u.length > 10) u = convert(u);
@@ -568,6 +566,7 @@ function subtract() {
         o = 0;
         k = 1;
         x = 1;
+
       } else {
         let p = document.getElementById("display");
         if (x < 2) equal();
@@ -577,6 +576,8 @@ function subtract() {
           side += operations[n] + factor[n+1];
           n++;
         }
+        console.log(side);
+
         product = eval(side);
         let u = commas(product);
         if (u > 999999999 || u < -999999999 || u.length > 10) u = convert(u);
@@ -686,6 +687,7 @@ function equal() {
             product = factor[0] + factor[1];
             if (s == 3 || s == 4) product = factor[l];
             if (str) products[l] = product.toString();
+
             let u = commas(product);
             if (u > 999999999 || u < -999999999 || u.length > 10) u = convert(u);
             p.innerHTML = u;
@@ -715,14 +717,20 @@ function equal() {
           break;
         case 2:
           if (x < 2) {
-            factor[l] = Number(str);
-            product = (factor[l-1] - factor[l]);
-            product = product.toString();
+            if (str) factor[l] = Number(str);
+            product = factor[0] - factor[1];
+            if (s == 3 || s == 4) product = factor[l];
+            if (str) products[l] = product.toString();
+
             let u = commas(product);
             if (u > 999999999 || u < -999999999 || u.length > 10) u = convert(u);
             p.innerHTML = u;
-            product = Number(product);
-            factor[l-1] = product;
+            if (s == 3 || s == 4) {
+              factor[l] = product;
+            } else {
+              p = 0;
+              factor[l] = product;
+            }
             str = "";
             v = 0;
             o = 1;
@@ -746,16 +754,6 @@ function equal() {
             if (str) factor[l] = Number(str);
             if (s == 3 || s == 4) product = (factor[l-1] * factor[l]);
 
-            if (s == 0) {
-            side = factor[0];
-            let n = 0;
-              for (let b = 0; b < operations.length; b++) {
-                side += operations[n] + factor[n+1];
-                n++;
-              }
-            product = eval(side);
-            }
-
             if ((operations[0] != "+" || operations[0] != "-")) {
               console.log("lol")
               side = factor[1];
@@ -767,11 +765,21 @@ function equal() {
               product = eval(side);
             }
 
+            if (s == 0) {
+            side = factor[0];
+            let n = 0;
+              for (let b = 0; b < operations.length; b++) {
+                side += operations[n] + factor[n+1];
+                n++;
+              }
+            product = eval(side);
+            }
+
+            products[l] = product.toString();
             let u = commas(product);
             if (u > 999999999 || u < -999999999 || u.length > 10) u = convert(u);
             p.innerHTML = u;
             product = Number(product);
-            console.log(product)
             products[l] = product.toString();
             str = "";
             o = 1;
@@ -797,6 +805,17 @@ function equal() {
             if (str) factor[l] = Number(str);
             if (s == 3 || s == 4) product = (factor[l-1] / factor[l]);
 
+            if ((operations[0] != "+" || operations[0] != "-")) {
+              console.log("lol")
+              side = factor[1];
+              let n = 1;
+              for (let b = 1; b < operations.length; b++) {
+                side += operations[n] + factor[n+1];
+                n++;
+              }
+              product = eval(side);
+            }
+
             if (s == 0) {
             side = factor[0];
             let n = 0;
@@ -812,7 +831,7 @@ function equal() {
             if (u > 999999999 || u < -999999999 || u.length > 10) u = convert(u);
             p.innerHTML = u;
             product = Number(product);
-            factor[l-1] = product;
+            products[l] = product.toString();
             str = "";
             v = 0;
             o = 1;
