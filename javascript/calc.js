@@ -131,13 +131,6 @@ function button0() {
       y = 0;;
       k = 0;
       l++;
-      if (i == 3 || i == 4) {
-        l = 0;
-        factor = []
-        factor[l] = product;
-        products = [];
-        operations = [];
-      }
     }
   }
 }
@@ -182,13 +175,6 @@ function button1() {
       y = 0;;
       k = 0;
       l++;
-      if (i == 3 || i == 4) {
-        l = 0;
-        factor = []
-        factor[l] = product;
-        products = [];
-        operations = [];
-      }
     }
   }
 }
@@ -233,13 +219,6 @@ function button2() {
       y = 0;;
       k = 0;
       l++;
-      if (i == 3 || i == 4) {
-        l = 0;
-        factor = []
-        factor[l] = product;
-        products = [];
-        operations = [];
-      }
     }
   }
 }
@@ -284,13 +263,6 @@ function button3() {
       k = 0;
       y = 0;;
       l++;
-      if (i == 3 || i == 4) {
-        l = 0;
-        factor = []
-        factor[l] = product;
-        products = [];
-        operations = [];
-      }
     }
   }
 }
@@ -335,13 +307,6 @@ function button4() {
       k = 0;
       y = 0;;
       l++;
-      if (i == 3 || i == 4) {
-        l = 0;
-        factor = []
-        factor[l] = product;
-        products = [];
-        operations = [];
-      }
     }
   }
 }
@@ -386,13 +351,6 @@ function button5() {
       y = 0;;
       k = 0;
       l++;
-      if (i == 3 || i == 4) {
-        l = 0;
-        factor = []
-        factor[l] = product;
-        products = [];
-        operations = [];
-      }
     }
   }
 }
@@ -437,13 +395,6 @@ function button6() {
       k = 0;
       y = 0;;
       l++;
-      if (i == 3 || i == 4) {
-        l = 0;
-        factor = []
-        factor[l] = product;
-        products = [];
-        operations = [];
-      }
     }
   }
 }
@@ -539,14 +490,6 @@ function button8() {
       y = 0;;
       k = 0;
       l++;
-      if (i == 3 || i == 4) {
-        l = 0;
-        factor = []
-        factor[l] = product;
-        products = [];
-        operations = [];
-        console.log(products, factor, products, operations)
-  }
     }
   }
 }
@@ -591,13 +534,6 @@ function button9() {
       k = 0;
       y = 0;;
       l++;
-      if (i == 3 || i == 4) {
-        l = 0;
-        factor = []
-        factor[l] = product;
-        products = [];
-        operations = [];
-  }
     }
   }
 }
