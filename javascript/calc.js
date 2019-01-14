@@ -131,6 +131,13 @@ function button0() {
       y = 0;;
       k = 0;
       l++;
+      if (i == 3 || i == 4) {
+        l = 0;
+        factor = []
+        factor[l] = product;
+        products = [];
+        operations = [];
+      }
     }
   }
 }
@@ -175,6 +182,13 @@ function button1() {
       y = 0;;
       k = 0;
       l++;
+      if (i == 3 || i == 4) {
+        l = 0;
+        factor = []
+        factor[l] = product;
+        products = [];
+        operations = [];
+      }
     }
   }
 }
@@ -219,6 +233,13 @@ function button2() {
       y = 0;;
       k = 0;
       l++;
+      if (i == 3 || i == 4) {
+        l = 0;
+        factor = []
+        factor[l] = product;
+        products = [];
+        operations = [];
+      }
     }
   }
 }
@@ -263,6 +284,13 @@ function button3() {
       k = 0;
       y = 0;;
       l++;
+      if (i == 3 || i == 4) {
+        l = 0;
+        factor = []
+        factor[l] = product;
+        products = [];
+        operations = [];
+      }
     }
   }
 }
@@ -307,6 +335,13 @@ function button4() {
       k = 0;
       y = 0;;
       l++;
+      if (i == 3 || i == 4) {
+        l = 0;
+        factor = []
+        factor[l] = product;
+        products = [];
+        operations = [];
+      }
     }
   }
 }
@@ -351,6 +386,13 @@ function button5() {
       y = 0;;
       k = 0;
       l++;
+      if (i == 3 || i == 4) {
+        l = 0;
+        factor = []
+        factor[l] = product;
+        products = [];
+        operations = [];
+      }
     }
   }
 }
@@ -395,6 +437,13 @@ function button6() {
       k = 0;
       y = 0;;
       l++;
+      if (i == 3 || i == 4) {
+        l = 0;
+        factor = []
+        factor[l] = product;
+        products = [];
+        operations = [];
+      }
     }
   }
 }
@@ -439,6 +488,13 @@ function button7() {
       y = 0;;
       k = 0;
       l++;
+      if (i == 3 || i == 4) {
+        l = 0;
+        factor = []
+        factor[l] = product;
+        products = [];
+        operations = [];
+  }
     }
   }
 }
@@ -483,6 +539,14 @@ function button8() {
       y = 0;;
       k = 0;
       l++;
+      if (i == 3 || i == 4) {
+        l = 0;
+        factor = []
+        factor[l] = product;
+        products = [];
+        operations = [];
+        console.log(products, factor, products, operations)
+  }
     }
   }
 }
@@ -527,6 +591,13 @@ function button9() {
       k = 0;
       y = 0;;
       l++;
+      if (i == 3 || i == 4) {
+        l = 0;
+        factor = []
+        factor[l] = product;
+        products = [];
+        operations = [];
+  }
     }
   }
 }
@@ -768,7 +839,7 @@ function equal() {
           if (x < 2) {
             if (str) factor[l] = Number(str);
             product = factor[l-1] + factor[l];
-            console.log(product);
+
             if (s == 3 || s == 4) product = factor[l];
             if (str) products[l] = product.toString();
 
@@ -788,6 +859,7 @@ function equal() {
             factor[l] = product;
             operations = []
             factor = [factor[0], factor[1]]
+            product = [];
             }
 
             let u = commas(product);
@@ -799,6 +871,7 @@ function equal() {
             x++;
             v = 0;
             o = 1;
+            y = 1;
           } else {
             product = (factor[l] + factor[l+1]);
             product = product.toString();
@@ -812,6 +885,7 @@ function equal() {
             v = 0;
             o = 1;
             x++;
+            y = 1;
           }
           break;
         case 2:
@@ -837,6 +911,7 @@ function equal() {
             factor[l] = product;
             operations = []
             factor = [factor[0], factor[1]]
+            product = [];
             }
 
             let u = commas(product);
@@ -847,6 +922,7 @@ function equal() {
             v = 0;
             o = 1;
             x++;
+            y = 1;
           } else {
             product = (factor[l] - factor[l+1]);
             product = product.toString();
@@ -859,6 +935,7 @@ function equal() {
             v = 0;
             x++;
             o = 1;
+            y = 1;
           }
           break;
         case 3:
@@ -888,6 +965,7 @@ function equal() {
               factor[l] = product;
               operations = []
               factor = [factor[0], factor[1]]
+              product = [];
               }
 
 
@@ -900,7 +978,7 @@ function equal() {
               o = 1;
               v = 0;
               x++;
-
+              y = 1;
           } else {
             product = (factor[l] * factor[l+1]);
             product = product.toString();
@@ -913,6 +991,7 @@ function equal() {
             v = 0;
             o = 1;
             x++;
+            y = 1;
           }
           break;
         case 4:
@@ -942,6 +1021,7 @@ function equal() {
             factor[l] = product;
             operations = []
             factor = [factor[0], factor[1]]
+            product = [];
             }
             product = (product) ? product.toString() : factor[l];
             products[l] = (product) ? product.toString() : factor[l];
@@ -981,6 +1061,7 @@ function equal() {
               v = 0;
               o = 1;
               x++;
+              y = 1;
             }
 
           } else {
@@ -995,6 +1076,7 @@ function equal() {
             v = 0;
             o = 1;
             x++;
+            y = 1;
           }
           break;
         default:
@@ -1093,6 +1175,7 @@ function percent() {
 //Fix 0 ransome 0s befroe products or factors
 //max number limit (negaton)
 //scientific notation?
+//clicking divided twice
 
 /*
 Powers x2, x3, and xy)
