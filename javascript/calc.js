@@ -795,7 +795,6 @@ function equal() {
             factor[l] = product;
             operations = []
             factor = [factor[0], factor[1]]
-            product = [];
             }
 
             let u = commas(product);
@@ -847,7 +846,6 @@ function equal() {
             factor[l] = product;
             operations = []
             factor = [factor[0], factor[1]]
-            product = [];
             }
 
             let u = commas(product);
@@ -901,7 +899,6 @@ function equal() {
               factor[l] = product;
               operations = []
               factor = [factor[0], factor[1]]
-              product = [];
               }
 
 
@@ -957,7 +954,6 @@ function equal() {
             factor[l] = product;
             operations = []
             factor = [factor[0], factor[1]]
-            product = [];
             }
             product = (product) ? product.toString() : factor[l];
             products[l] = (product) ? product.toString() : factor[l];
