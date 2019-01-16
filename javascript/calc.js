@@ -131,6 +131,11 @@ function button0() {
       y = 0;;
       k = 0;
       l++;
+      if (operations[0] == ("+" || "-") && operations[1] == ("+" || "-")) {
+        factor = [product]
+        operations.pop();
+        l--;
+      }
     }
   }
 }
@@ -175,6 +180,11 @@ function button1() {
       y = 0;;
       k = 0;
       l++;
+      if (operations[0] == ("+" || "-") && operations[1] == ("+" || "-")) {
+        factor = [product]
+        operations.pop();
+        l--;
+      }
     }
   }
 }
@@ -219,6 +229,11 @@ function button2() {
       y = 0;;
       k = 0;
       l++;
+      if (operations[0] == ("+" || "-") && operations[1] == ("+" || "-")) {
+        factor = [product]
+        operations.pop();
+        l--;
+      }
     }
   }
 }
@@ -263,6 +278,11 @@ function button3() {
       k = 0;
       y = 0;;
       l++;
+      if ((operations[0] == ("+" || "-")) && (operations[1] == ("+" || "-"))) {
+        factor = [product]
+        operations.pop();
+        l--;
+      }
     }
   }
 }
@@ -307,6 +327,11 @@ function button4() {
       k = 0;
       y = 0;;
       l++;
+      if (operations[0] == ("+" || "-") && operations[1] == ("+" || "-")) {
+        factor = [product]
+        operations.pop();
+        l--;
+      }
     }
   }
 }
@@ -351,6 +376,11 @@ function button5() {
       y = 0;;
       k = 0;
       l++;
+      if (operations[0] == ("+" || "-") && operations[1] == ("+" || "-")) {
+        factor = [product]
+        operations.pop();
+        l--;
+      }
     }
   }
 }
@@ -395,6 +425,11 @@ function button6() {
       k = 0;
       y = 0;;
       l++;
+      if (operations[0] == ("+" || "-") && operations[1] == ("+" || "-")) {
+        factor = [product]
+        operations.pop();
+        l--;
+      }
     }
   }
 }
@@ -439,13 +474,11 @@ function button7() {
       y = 0;;
       k = 0;
       l++;
-      if (i == 3 || i == 4) {
-        l = 0;
-        factor = []
-        factor[l] = product;
-        products = [];
-        operations = [];
-  }
+      if (operations[0] == ("+" || "-") && operations[1] == ("+" || "-")) {
+        factor = [product]
+        operations.pop();
+        l--;
+      }
     }
   }
 }
@@ -490,6 +523,11 @@ function button8() {
       y = 0;;
       k = 0;
       l++;
+      if (operations[0] == ("+" || "-") && operations[1] == ("+" || "-")) {
+        factor = [product]
+        operations.pop();
+        l--;
+      }
     }
   }
 }
@@ -534,6 +572,11 @@ function button9() {
       k = 0;
       y = 0;;
       l++;
+      if (operations[0] == ("+" || "-") && operations[1] == ("+" || "-")) {
+        factor = [product]
+        operations.pop();
+        l--;
+      }
     }
   }
 }
@@ -1051,13 +1094,18 @@ function positiveAndNegative() {
       c = commas(str);
       p.innerHTML = c;
       str = str.toString();
+      break;
     case 1:
-      str = (product * (-1));
-      c = commas(str);
+      product = (product * (-1));
+      c = commas(product);
       p.innerHTML = c;
-      str = str.toString();
-      o = 0;
+      product = product.toString();
+      l = 0
+      factor[l] = product;
+      operations = []
+      o = 1;
       v = 0;
+      break;
     default:
       break;
   }
