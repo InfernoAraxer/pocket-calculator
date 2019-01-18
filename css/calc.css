@@ -27,6 +27,11 @@ button {
   padding: 30px 45.5px;
 }
 
+.center {
+  background-color: dodgerblue;
+}
+
+
 button:hover {
   background-color: #ffb732;
 }
@@ -38,12 +43,19 @@ button:active {
     transform: translateY(4px);
 }
 
+.center:hover {
+  background-color: lightblue;
+}
+
 .font {
   font-family: 'Inconsolata', monospace;
+  color: lightgreen;
 }
 
 body {
   background-color: lightgray;
+  background-image: url(../background.gif);
+  background-position: 550px;
 }
 
 #display {
@@ -63,6 +75,6 @@ table {
   border-radius: 20px;
   border: 10px solid black;
   padding-bottom: 15px;
-  background-color: #404040;
+  background-color: lightgreen;
   box-shadow: 10px 10px 5px grey;
 }
