@@ -21,6 +21,7 @@ let k = 0;
 let side;
 let n = 0;
 let c = "";
+let f = 1;
 
 //fix?
 function convert(input) {
@@ -93,6 +94,7 @@ function commas(input) {
 
 function button0() {
   if (v == 0) {
+    f = 1;
     q = 0;
     o = 0;
     factor = [];
@@ -112,17 +114,42 @@ function button0() {
     h = 1;
     let p = document.getElementById("display");
     str += 0;
-    if (str % 1 != 0 && str.length > 10) str = str.substring(0,10);
-    if (str % 1 == 0 && str.length > 9) str = str.substring(0,9);
+    if (str % 1 != 0 && str.length > 10) {
+      if (str > 0) {
+        str = str.substring(0,10);
+      } else {
+        str = str.substring(0,11);
+      }
+    }
+    if (str % 1 == 0 && str.length > 9) {
+      if (str > 0) {
+        str = str.substring(0,9);
+      } else {
+        str = str.substring(0,10);
+      }
+    }
     let u = commas(str);
     p.innerHTML = u;
     w++;
     str = "";
   } else if (v > 0) {
     let p = document.getElementById("display");
+    f = 1;
     str += "0";
-    if (str % 1 != 0 && str.length > 10) str = str.substring(0,10);
-    if (str % 1 == 0 && str.length > 9) str = str.substring(0,9);
+    if (str % 1 != 0 && str.length > 10) {
+      if (str > 0) {
+        str = str.substring(0,10);
+      } else {
+        str = str.substring(0,11);
+      }
+    }
+    if (str % 1 == 0 && str.length > 9) {
+      if (str > 0) {
+        str = str.substring(0,9);
+      } else {
+        str = str.substring(0,10);
+      }
+    }
     let u = commas(str);
     p.innerHTML = u;
     w++;
@@ -157,21 +184,47 @@ function button1() {
     x = 1;
     y = 0;
     r = 1;
+    f = 1;
     w = 0;
     h = 1;
     let p = document.getElementById("display");
     str += "1";
-    if (str % 1 != 0 && str.length > 10) str = str.substring(0,10);
-    if (str % 1 == 0 && str.length > 9) str = str.substring(0,9);
+    if (str % 1 != 0 && str.length > 10) {
+      if (str > 0) {
+        str = str.substring(0,10);
+      } else {
+        str = str.substring(0,11);
+      }
+    }
+    if (str % 1 == 0 && str.length > 9) {
+      if (str > 0) {
+        str = str.substring(0,9);
+      } else {
+        str = str.substring(0,10);
+      }
+    }
     let u = commas(str);
     p.innerHTML = u;
     w++;
     v++;
   } else {
     let p = document.getElementById("display");
+    f = 1;
     str += "1";
-    if (str % 1 != 0 && str.length > 10) str = str.substring(0,10);
-    if (str % 1 == 0 && str.length > 9) str = str.substring(0,9);
+    if (str % 1 != 0 && str.length > 10) {
+      if (str > 0) {
+        str = str.substring(0,10);
+      } else {
+        str = str.substring(0,11);
+      }
+    }
+    if (str % 1 == 0 && str.length > 9) {
+      if (str > 0) {
+        str = str.substring(0,9);
+      } else {
+        str = str.substring(0,10);
+      }
+    }
     let u = commas(str);
     p.innerHTML = u;
     w++;
@@ -205,6 +258,7 @@ function button2() {
     product = "";
     x = 1;
     y = 0;
+    f = 1;
     r = 1;
     w = 0;
     h = 1;
@@ -218,9 +272,22 @@ function button2() {
     v++;
   } else {
     let p = document.getElementById("display");
+    f = 1;
     str += "2";
-    if (str % 1 != 0 && str.length > 10) str = str.substring(0,10);
-    if (str % 1 == 0 && str.length > 9) str = str.substring(0,9);
+    if (str % 1 != 0 && str.length > 10) {
+      if (str > 0) {
+        str = str.substring(0,10);
+      } else {
+        str = str.substring(0,11);
+      }
+    }
+    if (str % 1 == 0 && str.length > 9) {
+      if (str > 0) {
+        str = str.substring(0,9);
+      } else {
+        str = str.substring(0,10);
+      }
+    }
     let u = commas(str);
     p.innerHTML = u;
     w++;
@@ -252,6 +319,7 @@ function button3() {
     str = "";
     i = 0;
     product = "";
+    f = 1;
     x = 1;
     y = 0;
     r = 1;
@@ -259,8 +327,20 @@ function button3() {
     h = 1;
     let p = document.getElementById("display");
     str += "3";
-    if (str % 1 != 0 && str.length > 10) str = str.substring(0,10);
-    if (str % 1 == 0 && str.length > 9) str = str.substring(0,9);
+    if (str % 1 != 0 && str.length > 10) {
+      if (str > 0) {
+        str = str.substring(0,10);
+      } else {
+        str = str.substring(0,11);
+      }
+    }
+    if (str % 1 == 0 && str.length > 9) {
+      if (str > 0) {
+        str = str.substring(0,9);
+      } else {
+        str = str.substring(0,10);
+      }
+    }
     let u = commas(str);
     p.innerHTML = u;
     w++;
@@ -268,9 +348,22 @@ function button3() {
   } else {
     let p = document.getElementById("display");
     str += "3";
-    if (str % 1 != 0 && str.length > 10) str = str.substring(0,10);
-    if (str % 1 == 0 && str.length > 9) str = str.substring(0,9);
+    if (str % 1 != 0 && str.length > 10) {
+      if (str > 0) {
+        str = str.substring(0,10);
+      } else {
+        str = str.substring(0,11);
+      }
+    }
+    if (str % 1 == 0 && str.length > 9) {
+      if (str > 0) {
+        str = str.substring(0,9);
+      } else {
+        str = str.substring(0,10);
+      }
+    }
     let u = commas(str);
+    f = 1;
     p.innerHTML = u;
     w++;
     if (k == 1) {
@@ -298,6 +391,7 @@ function button4() {
     k = 0;
     side = 0;
     n = 0;
+    f = 1;
     str = "";
     i = 0;
     product = "";
@@ -308,17 +402,42 @@ function button4() {
     h = 1;
     let p = document.getElementById("display");
     str += "4";
-    if (str % 1 != 0 && str.length > 10) str = str.substring(0,10);
-    if (str % 1 == 0 && str.length > 9) str = str.substring(0,9);
+    if (str % 1 != 0 && str.length > 10) {
+      if (str > 0) {
+        str = str.substring(0,10);
+      } else {
+        str = str.substring(0,11);
+      }
+    }
+    if (str % 1 == 0 && str.length > 9) {
+      if (str > 0) {
+        str = str.substring(0,9);
+      } else {
+        str = str.substring(0,10);
+      }
+    }
     let u = commas(str);
     p.innerHTML = u;
     w++;
     v++;
   } else {
     let p = document.getElementById("display");
+    f = 1;
     str += "4";
-    if (str % 1 != 0 && str.length > 10) str = str.substring(0,10);
-    if (str % 1 == 0 && str.length > 9) str = str.substring(0,9);
+    if (str % 1 != 0 && str.length > 10) {
+      if (str > 0) {
+        str = str.substring(0,10);
+      } else {
+        str = str.substring(0,11);
+      }
+    }
+    if (str % 1 == 0 && str.length > 9) {
+      if (str > 0) {
+        str = str.substring(0,9);
+      } else {
+        str = str.substring(0,10);
+      }
+    }
     let u = commas(str);
     p.innerHTML = u;
     w++;
@@ -346,6 +465,7 @@ function button5() {
     l = 0;
     k = 0;
     side = 0;
+    f = 1;
     n = 0;
     str = "";
     i = 0;
@@ -357,17 +477,42 @@ function button5() {
     h = 1;
     let p = document.getElementById("display");
     str += "5";
-    if (str % 1 != 0 && str.length > 10) str = str.substring(0,10);
-    if (str % 1 == 0 && str.length > 9) str = str.substring(0,9);
+    if (str % 1 != 0 && str.length > 10) {
+      if (str > 0) {
+        str = str.substring(0,10);
+      } else {
+        str = str.substring(0,11);
+      }
+    }
+    if (str % 1 == 0 && str.length > 9) {
+      if (str > 0) {
+        str = str.substring(0,9);
+      } else {
+        str = str.substring(0,10);
+      }
+    }
     let u = commas(str);
     p.innerHTML = u;
     w++;
     v++;
   } else {
     let p = document.getElementById("display");
+    f = 1;
     str += "5";
-    if (str % 1 != 0 && str.length > 10) str = str.substring(0,10);
-    if (str % 1 == 0 && str.length > 9) str = str.substring(0,9);
+    if (str % 1 != 0 && str.length > 10) {
+      if (str > 0) {
+        str = str.substring(0,10);
+      } else {
+        str = str.substring(0,11);
+      }
+    }
+    if (str % 1 == 0 && str.length > 9) {
+      if (str > 0) {
+        str = str.substring(0,9);
+      } else {
+        str = str.substring(0,10);
+      }
+    }
     let u = commas(str);
     p.innerHTML = u;
     w++;
@@ -396,6 +541,7 @@ function button6() {
     k = 0;
     side = 0;
     n = 0;
+    f = 1;
     str = "";
     i = 0;
     product = "";
@@ -406,17 +552,42 @@ function button6() {
     h = 1;
     let p = document.getElementById("display");
     str += "6";
-    if (str % 1 != 0 && str.length > 10) str = str.substring(0,10);
-    if (str % 1 == 0 && str.length > 9) str = str.substring(0,9);
+    if (str % 1 != 0 && str.length > 10) {
+      if (str > 0) {
+        str = str.substring(0,10);
+      } else {
+        str = str.substring(0,11);
+      }
+    }
+    if (str % 1 == 0 && str.length > 9) {
+      if (str > 0) {
+        str = str.substring(0,9);
+      } else {
+        str = str.substring(0,10);
+      }
+    }
     let u = commas(str);
     p.innerHTML = u;
     w++;
     v++;
   } else {
     let p = document.getElementById("display");
+    f = 1;
     str += "6";
-    if (str % 1 != 0 && str.length > 10) str = str.substring(0,10);
-    if (str % 1 == 0 && str.length > 9) str = str.substring(0,9);
+    if (str % 1 != 0 && str.length > 10) {
+      if (str > 0) {
+        str = str.substring(0,10);
+      } else {
+        str = str.substring(0,11);
+      }
+    }
+    if (str % 1 == 0 && str.length > 9) {
+      if (str > 0) {
+        str = str.substring(0,9);
+      } else {
+        str = str.substring(0,10);
+      }
+    }
     let u = commas(str);
     p.innerHTML = u;
     w++;
@@ -452,20 +623,46 @@ function button7() {
     y = 0;
     r = 1;
     w = 0;
+    f = 1;
     h = 1;
     let p = document.getElementById("display");
     str += "7";
-    if (str % 1 != 0 && str.length > 10) str = str.substring(0,10);
-    if (str % 1 == 0 && str.length > 9) str = str.substring(0,9);
+    if (str % 1 != 0 && str.length > 10) {
+      if (str > 0) {
+        str = str.substring(0,10);
+      } else {
+        str = str.substring(0,11);
+      }
+    }
+    if (str % 1 == 0 && str.length > 9) {
+      if (str > 0) {
+        str = str.substring(0,9);
+      } else {
+        str = str.substring(0,10);
+      }
+    }
     let u = commas(str);
     p.innerHTML = u;
     w++;
     v++;
   } else {
     let p = document.getElementById("display");
+    f = 1;
     str += "7";
-    if (str % 1 != 0 && str.length > 10) str = str.substring(0,10);
-    if (str % 1 == 0 && str.length > 9) str = str.substring(0,9);
+    if (str % 1 != 0 && str.length > 10) {
+      if (str > 0) {
+        str = str.substring(0,10);
+      } else {
+        str = str.substring(0,11);
+      }
+    }
+    if (str % 1 == 0 && str.length > 9) {
+      if (str > 0) {
+        str = str.substring(0,9);
+      } else {
+        str = str.substring(0,10);
+      }
+    }
     let u = commas(str);
     p.innerHTML = u;
     w++;
@@ -490,6 +687,7 @@ function button8() {
     factor = [];
     operations = [];
     products = [];
+    f = 1;
     l = 0;
     k = 0;
     side = 0;
@@ -504,17 +702,42 @@ function button8() {
     h = 1;
     let p = document.getElementById("display");
     str += "8";
-    if (str % 1 != 0 && str.length > 10) str = str.substring(0,10);
-    if (str % 1 == 0 && str.length > 9) str = str.substring(0,9);
+    if (str % 1 != 0 && str.length > 10) {
+      if (str > 0) {
+        str = str.substring(0,10);
+      } else {
+        str = str.substring(0,11);
+      }
+    }
+    if (str % 1 == 0 && str.length > 9) {
+      if (str > 0) {
+        str = str.substring(0,9);
+      } else {
+        str = str.substring(0,10);
+      }
+    }
     let u = commas(str);
     p.innerHTML = u;
     w++;
     v++;
   } else {
     let p = document.getElementById("display");
+    f = 1;
     str += "8";
-    if (str % 1 != 0 && str.length > 10) str = str.substring(0,10);
-    if (str % 1 == 0 && str.length > 9) str = str.substring(0,9);
+    if (str % 1 != 0 && str.length > 10) {
+      if (str > 0) {
+        str = str.substring(0,10);
+      } else {
+        str = str.substring(0,11);
+      }
+    }
+    if (str % 1 == 0 && str.length > 9) {
+      if (str > 0) {
+        str = str.substring(0,9);
+      } else {
+        str = str.substring(0,10);
+      }
+    }
     let u = commas(str);
     p.innerHTML = u;
     w++;
@@ -545,6 +768,7 @@ function button9() {
     n = 0;
     str = "";
     i = 0;
+    f = 1;
     product = "";
     x = 1;
     y = 0;
@@ -553,20 +777,46 @@ function button9() {
     h = 1;
     let p = document.getElementById("display");
     str += "9";
-    if (str % 1 != 0 && str.length > 10) str = str.substring(0,10);
-    if (str % 1 == 0 && str.length > 9) str = str.substring(0,9);
+    if (str % 1 != 0 && str.length > 10) {
+      if (str > 0) {
+        str = str.substring(0,10);
+      } else {
+        str = str.substring(0,11);
+      }
+    }
+    if (str % 1 == 0 && str.length > 9) {
+      if (str > 0) {
+        str = str.substring(0,9);
+      } else {
+        str = str.substring(0,10);
+      }
+    }
     let u = commas(str);
     p.innerHTML = u;
     w++;
     v++;
   } else {
     let p = document.getElementById("display");
+    f = 1;
     str += "9";
-    if (str % 1 != 0 && str.length > 10) str = str.substring(0,10);
-    if (str % 1 == 0 && str.length > 9) str = str.substring(0,9);
+    if (str % 1 != 0 && str.length > 10) {
+      if (str > 0) {
+        str = str.substring(0,10);
+      } else {
+        str = str.substring(0,11);
+      }
+    }
+    if (str % 1 == 0 && str.length > 9) {
+      if (str > 0) {
+        str = str.substring(0,9);
+      } else {
+        str = str.substring(0,10);
+      }
+    }
     let u = commas(str);
     p.innerHTML = u;
     w++;
+
     if (k == 1) {
       operations[l] = j[i-1];
       k = 0;
@@ -587,6 +837,11 @@ function add() {
       break;
     case 1:
       s = 1;
+      if (f == 1 && str < 0) {
+        str = "( " + str + " )";
+        f++;
+      }
+
       if (r < 2) {
         let p = document.getElementById("display");
         factor[l] = Number(str);
@@ -633,6 +888,10 @@ function subtract() {
     case 0:
       break;
     case 1:
+    if (f == 1 && str < 0) {
+      str = "(" + str + ")";
+      f++;
+    }
       s = 2;
       if (r < 2) {
         let p = document.getElementById("display");
@@ -679,6 +938,10 @@ function multiply() {
       break;
     case 1:
       s = 3;
+      if (f == 1 && str < 0) {
+        str = "(" + str + ")";
+        f++;
+      }
       if (r < 2) {
         let p = document.getElementById("display");
         factor[l] = Number(str);
@@ -723,6 +986,10 @@ function divide() {
       break;
     case 1:
       s = 4;
+      if (f == 1 && str < 0) {
+        str = "(" + str + ")";
+        f++;
+      }
       if (r < 2) {
         let p = document.getElementById("display");
         factor[l] = Number(str);
@@ -786,7 +1053,6 @@ function divide() {
 }
 
 function decimal() {
-  console.log(y, str.length)
   if (y < 1 && str % 1 == 0 && str.length < 10) {
     y++;
     let p = document.getElementById("display");
@@ -867,8 +1133,17 @@ function equal() {
           }
           break;
         case 2:
-          if (x < 2) {
-            if (str) factor[l] = Number(str);
+          if (f == 1 && str < 0) {
+            str = "(" + str + ")";
+            f++;
+          }
+          console.log(str);
+            if (x < 2) {
+            if (str && f == 1) {
+              factor[l] = Number(str);
+            } else {
+              factor[l] = str;
+            }
             product = factor[l-1] - factor[l];
             if (s == 3 || s == 4) product = factor[l];
             if (str) products[l] = product.toString();
@@ -884,6 +1159,7 @@ function equal() {
                 side += operations[n] + factor[n+1];
                 n++;
               }
+
             product = eval(side);
             l = 0;
             factor[l] = product;
@@ -1114,53 +1390,32 @@ function positiveAndNegative() {
 //fix a little more
 function percent() {
   let p = document.getElementById("display");
-  if (!factor[l]) {
-    str = Number(str);
-    str = str/100;
-    let u = str;
-    if (str > 999 || str < -999) u = commas(str);
-    str = str.toString();
-    if (str > 999999999 || str < -999999999 || str.length > 10) u = convert(str);
-    p.innerHTML = u;
-    v = 0;
-  } else if (x < 2) {
-    percent = (Number(str)/100);
-    factor[l-1] = Number(factor[l-1] * percent);
-    if (x < 2) equal();
-    let u = commas(product);
-    str = str.toString();
-    if (str > 999999999 || str < -999999999 || str.length > 10) u = convert(str);
-    p.innerHTML = u;
-    factor[l-1] = Number(product);
-    str = "";
-    x++;
-    v = 0;
-  } else {
-    let p = document.getElementById("display");
-    if (x < 2) equal();
-    let u = commas(product);
-    str = str.toString();
-    if (str > 999999999 || str < -999999999 || str.length > 10) u = convert(str);
-    p.innerHTML = u;
-    str = "";
-    x = 1;
-    v = 1;
+  switch (o) {
+    case 0:
+      str = Number(str);
+      str = (str*(.01));
+      c = commas(str);
+      p.innerHTML = c;
+      str = str.toString();
+      break;
+    case 1:
+      product = (product * (-1));
+      c = commas(product);
+      p.innerHTML = c;
+      product = product.toString();
+      l = 0
+      factor[l] = product;
+      operations = []
+      o = 1;
+      v = 0;
+      break;
+    default:
+      break;
   }
 }
 
 //Need to Have or fix
 
-// the equal spam // maybe
-//Percantage + Negation Chain
-//Fix 0 ransome 0s befroe products or factors
-//max number limit (negaton)
-//scientific notation?
-//clicking divided twice
-
-/*
-Powers x2, x3, and xy)
-Roots (√x, 3√x, and y√x)
-Factorial (x!)
-Constants (π)
-Trigonometry (sin, cos, and tan)
-*/
+//oercent
+//image background
+//0's
